@@ -12,10 +12,21 @@ namespace SimuSecApp
         {
             return "TESTUSER:::" + username;
         }
-
+        
         public string PackPasswordFormat(string password)
         {
             return "TESTPASS:::" + password;
+        }
+
+        public bool isVerified(string LoopBackValue)
+        {
+            
+            if (LoopBackValue == "OK")
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }

@@ -16,6 +16,7 @@ namespace SimuSecApp
     public partial class InitialScreens : Form
     {
         Client _client = new Client();
+        Protocol protocol = new Protocol();
 
         public InitialScreens()
         {
@@ -53,7 +54,21 @@ namespace SimuSecApp
         {
             if (EmailTextBox.Text.Length != 0 && PasswordTextBox.Text.Length != 0) {
                 MessageBox.Show("Well done! Sending data... ");
-                
+
+                string emailToSend = protocol.PackUsernameFormat(EmailTextBox.Text);
+                string passwToSend = protocol.PackPasswordFormat(PasswordTextBox.Text);
+                _client.Send(emailToSend);
+                _client.Send(passwToSend);
+
+                string emailVer = _client.Receive();
+                string passwVer = _client.Receive();
+
+                if (!(protocol.isVerified(emailVer) && protocol.isVerified(passwVer))) {
+                    MessageBox.Show("Not good!");
+                    return;
+                }
+
+                MessageBox.Show("Verified");
 
             }
             

@@ -1,4 +1,9 @@
 import re
+import hashlib
+import os
+import time
+
+BUFFER = 1024
 
 def split_data(data):
     return data.split(":::")
@@ -26,3 +31,40 @@ def validatePassword(password):
     else:
         return "NO"
 
+
+def hash_password(password: str):
+    # Generate a random 16-byte salt
+    salt = os.urandom(16)
+    
+    # Hash the password using the salt and the SHA-256 algorithm
+    password_hash = hashlib.pbkdf2_hmac('sha256', password.encode(), salt, 100000)
+    
+    # Combine the salt and the password hash and return the result as a hexadecimal string
+    return (salt + password_hash).hex()
+
+def verify_password(password: str, password_hash: str):
+    # Convert the hexadecimal password hash string back to bytes
+    salt = bytes.fromhex(password_hash[:32])
+    
+    # Hash the entered password using the same salt and SHA-256 algorithm
+    password_hash_candidate = hashlib.pbkdf2_hmac('sha256', password.encode(), salt, 100000)
+    
+    # Compare the resulting password hash to the stored password hash
+    return password_hash_candidate.hex() == password_hash[32:]
+
+
+def login_validation(cli_sock):
+    username = cli_sock.recv(BUFFER).decode()
+    print(username)
+    username = get_data(username)
+    
+    time.sleep(0.1)
+    usernameVal = validateEmail(username)
+    passwd = cli_sock.recv(BUFFER).decode()
+    print(passwd)
+    passwd = get_data(passwd)
+    
+    time.sleep(0.1)
+    passwdVal = validatePassword(passwd)
+    return usernameVal, passwdVal
+        

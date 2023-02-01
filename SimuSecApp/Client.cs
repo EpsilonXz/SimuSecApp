@@ -36,20 +36,21 @@ namespace SimuSecApp
             
         }
 
-        public void Receive(TcpClient client)
+        public string Receive()
         {
-            int i = 0;
-            while (stream.DataAvailable)
-            {
-                bytes[i] = ((byte)stream.ReadByte());
-                i++;
-            }
+            // Read the data from the stream
+            byte[] data = new byte[1024];
+            int bytesRead = stream.Read(data, 0, data.Length);
 
-            string data = System.Text.Encoding.ASCII.GetString(bytes, 0, i);
-            MessageBox.Show("Received: " + data);
+            // Convert the data to a string
+            string receivedData = System.Text.Encoding.ASCII.GetString(data, 0, bytesRead);
+
+            MessageBox.Show("Received: " + receivedData);
+
+            return receivedData;
         }
 
-        private void Send(string message)
+        public void Send(string message)
         {
             try
             {
