@@ -93,7 +93,7 @@ namespace SimuSecApp
             this.ExtendLicenseButton.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExtendLicenseButton.ForeColor = System.Drawing.Color.White;
             this.ExtendLicenseButton.Location = new System.Drawing.Point(348, 453);
-            this.ExtendLicenseButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ExtendLicenseButton.Margin = new System.Windows.Forms.Padding(4);
             this.ExtendLicenseButton.Name = "ExtendLicenseButton";
             this.ExtendLicenseButton.Size = new System.Drawing.Size(639, 103);
             this.ExtendLicenseButton.TabIndex = 3;
@@ -114,7 +114,7 @@ namespace SimuSecApp
             this.SignUpButton.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignUpButton.ForeColor = System.Drawing.Color.White;
             this.SignUpButton.Location = new System.Drawing.Point(348, 299);
-            this.SignUpButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SignUpButton.Margin = new System.Windows.Forms.Padding(4);
             this.SignUpButton.Name = "SignUpButton";
             this.SignUpButton.Size = new System.Drawing.Size(639, 103);
             this.SignUpButton.TabIndex = 2;
@@ -135,7 +135,7 @@ namespace SimuSecApp
             this.LoginButton.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginButton.ForeColor = System.Drawing.Color.Transparent;
             this.LoginButton.Location = new System.Drawing.Point(344, 159);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.LoginButton.Margin = new System.Windows.Forms.Padding(4);
             this.LoginButton.Name = "LoginButton";
             this.LoginButton.Size = new System.Drawing.Size(639, 103);
             this.LoginButton.TabIndex = 1;
@@ -214,7 +214,7 @@ namespace SimuSecApp
             this.SubmitButton.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SubmitButton.ForeColor = System.Drawing.Color.Black;
             this.SubmitButton.Location = new System.Drawing.Point(456, 570);
-            this.SubmitButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.SubmitButton.Margin = new System.Windows.Forms.Padding(4);
             this.SubmitButton.Name = "SubmitButton";
             this.SubmitButton.Size = new System.Drawing.Size(452, 80);
             this.SubmitButton.TabIndex = 6;
@@ -227,7 +227,7 @@ namespace SimuSecApp
             // 
             this.PasswordTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordTextBox.Location = new System.Drawing.Point(197, 252);
-            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PasswordTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.PasswordTextBox.MaxLength = 24;
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PasswordChar = '*';
@@ -239,7 +239,7 @@ namespace SimuSecApp
             // 
             this.EmailTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailTextBox.Location = new System.Drawing.Point(197, 119);
-            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.EmailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.EmailTextBox.MaxLength = 254;
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.Size = new System.Drawing.Size(709, 33);
@@ -286,12 +286,13 @@ namespace SimuSecApp
             this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
             this.Logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("Logo.InitialImage")));
             this.Logo.Location = new System.Drawing.Point(1279, 6);
-            this.Logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Logo.Margin = new System.Windows.Forms.Padding(4);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(49, 41);
             this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Logo.TabIndex = 0;
             this.Logo.TabStop = false;
+            this.Logo.Click += new System.EventHandler(this.Logo_Click);
             // 
             // InitialScreens
             // 

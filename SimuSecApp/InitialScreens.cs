@@ -92,5 +92,10 @@ namespace SimuSecApp
                 PasswordErrorLabel.Visible = false;
             }
         }
+
+        private void Logo_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = FirstPage;
+        }
     }
 }
