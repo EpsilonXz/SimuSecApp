@@ -1,0 +1,5 @@
+Don't forget that the signup needs to have a followup
+error if it failed so the ClientErrorLabels know
+what to present...
+
+Add a function that handels the exceptions and generates a proper error msg

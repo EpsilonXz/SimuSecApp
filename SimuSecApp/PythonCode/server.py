@@ -22,19 +22,28 @@ class Server:
 
         print(f"Client at {self.cli_addr} connected!")
 
-        self.transcript_info();
+        self.transcript_info()
+
+
+    def generate_response(key, data):
+        data = PYProtocol.get_data(data)
+
+        if    key == 0: # Email Verification
+            return PYProtocol.validateEmail(data)
+        
+        elif  key == 1: # Password Verification
+            return PYProtocol.validatePassword(data)
+
 
     def transcript_info(self):
-        usernameVal, passwdVal = PYProtocol.login_validation(self.cli_sock)
-        print(usernameVal)
-        self.cli_sock.send(usernameVal.encode())
-        self.cli_sock.send(passwdVal.encode())
+        while True:
+            action = self.cli_sock.recv(100).decode()
+            
+            PYProtocol.act_by_action(action, self.cli_sock)
+
+            print("Done")
+            break
         
-    
-
-    
-
 
 if __name__ == "__main__":
-    server = Server()
-    
+    server = Server()  

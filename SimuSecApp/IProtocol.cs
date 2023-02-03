@@ -10,5 +10,7 @@ namespace SimuSecApp
     {
         string PackUsernameFormat(string username);
         string PackPasswordFormat(string password);
+        bool isVerified(string LoopBackValue);
+        string GetCurrentTimeAsString();
     }
 }

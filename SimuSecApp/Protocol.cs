@@ -18,6 +18,8 @@ namespace SimuSecApp
             return "TESTPASS:::" + password;
         }
 
+        
+
         public bool isVerified(string LoopBackValue)
         {
             
@@ -27,6 +29,12 @@ namespace SimuSecApp
             }
 
             return false;
+        }
+
+        public string GetCurrentTimeAsString()
+        {
+            DateTime currentTime = DateTime.Now;
+            return currentTime.ToString("dd/MM/yyyy");
         }
     }
 }

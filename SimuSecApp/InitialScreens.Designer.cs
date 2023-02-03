@@ -46,16 +46,33 @@ namespace SimuSecApp
             this.EmailLabel = new System.Windows.Forms.Label();
             this.LoginLabel = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
+            this.SignUpScreen = new System.Windows.Forms.TabPage();
+            this.CurrentDateLabelSignUp = new System.Windows.Forms.Label();
+            this.ConfirmPassErrorLabelSU = new System.Windows.Forms.Label();
+            this.ConfirmPasswordTextBoxSU = new System.Windows.Forms.TextBox();
+            this.ConfirmPassLabel = new System.Windows.Forms.Label();
+            this.PasswordErrorLabelSU = new System.Windows.Forms.Label();
+            this.EmailErrorLabelSU = new System.Windows.Forms.Label();
+            this.SubmitSUButton = new SimuSecApp.RJButton();
+            this.PasswordTextBoxSU = new System.Windows.Forms.TextBox();
+            this.EmailTextBoxSU = new System.Windows.Forms.TextBox();
+            this.PasswdLabelSU = new System.Windows.Forms.Label();
+            this.EmailLabelSU = new System.Windows.Forms.Label();
+            this.SignUpLabel = new System.Windows.Forms.Label();
+            this.LogoSU = new System.Windows.Forms.PictureBox();
             this.tabControl1.SuspendLayout();
             this.FirstPage.SuspendLayout();
             this.LoginScreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
+            this.SignUpScreen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoSU)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.FirstPage);
             this.tabControl1.Controls.Add(this.LoginScreen);
+            this.tabControl1.Controls.Add(this.SignUpScreen);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Multiline = true;
@@ -285,7 +302,7 @@ namespace SimuSecApp
             // 
             this.Logo.Image = ((System.Drawing.Image)(resources.GetObject("Logo.Image")));
             this.Logo.InitialImage = ((System.Drawing.Image)(resources.GetObject("Logo.InitialImage")));
-            this.Logo.Location = new System.Drawing.Point(1279, 6);
+            this.Logo.Location = new System.Drawing.Point(1277, 6);
             this.Logo.Margin = new System.Windows.Forms.Padding(4);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(49, 41);
@@ -293,6 +310,195 @@ namespace SimuSecApp
             this.Logo.TabIndex = 0;
             this.Logo.TabStop = false;
             this.Logo.Click += new System.EventHandler(this.Logo_Click);
+            // 
+            // SignUpScreen
+            // 
+            this.SignUpScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
+            this.SignUpScreen.Controls.Add(this.CurrentDateLabelSignUp);
+            this.SignUpScreen.Controls.Add(this.ConfirmPassErrorLabelSU);
+            this.SignUpScreen.Controls.Add(this.ConfirmPasswordTextBoxSU);
+            this.SignUpScreen.Controls.Add(this.ConfirmPassLabel);
+            this.SignUpScreen.Controls.Add(this.PasswordErrorLabelSU);
+            this.SignUpScreen.Controls.Add(this.EmailErrorLabelSU);
+            this.SignUpScreen.Controls.Add(this.SubmitSUButton);
+            this.SignUpScreen.Controls.Add(this.PasswordTextBoxSU);
+            this.SignUpScreen.Controls.Add(this.EmailTextBoxSU);
+            this.SignUpScreen.Controls.Add(this.PasswdLabelSU);
+            this.SignUpScreen.Controls.Add(this.EmailLabelSU);
+            this.SignUpScreen.Controls.Add(this.SignUpLabel);
+            this.SignUpScreen.Controls.Add(this.LogoSU);
+            this.SignUpScreen.Location = new System.Drawing.Point(4, 25);
+            this.SignUpScreen.Name = "SignUpScreen";
+            this.SignUpScreen.Padding = new System.Windows.Forms.Padding(3);
+            this.SignUpScreen.Size = new System.Drawing.Size(1337, 705);
+            this.SignUpScreen.TabIndex = 2;
+            this.SignUpScreen.Text = "SignUpScreen";
+            // 
+            // CurrentDateLabelSignUp
+            // 
+            this.CurrentDateLabelSignUp.AutoSize = true;
+            this.CurrentDateLabelSignUp.Font = new System.Drawing.Font("Microsoft YaHei UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurrentDateLabelSignUp.ForeColor = System.Drawing.SystemColors.Control;
+            this.CurrentDateLabelSignUp.Location = new System.Drawing.Point(479, 518);
+            this.CurrentDateLabelSignUp.Name = "CurrentDateLabelSignUp";
+            this.CurrentDateLabelSignUp.Size = new System.Drawing.Size(400, 37);
+            this.CurrentDateLabelSignUp.TabIndex = 20;
+            this.CurrentDateLabelSignUp.Text = "Current Date: XX/XX/XXXX";
+            // 
+            // ConfirmPassErrorLabelSU
+            // 
+            this.ConfirmPassErrorLabelSU.AutoSize = true;
+            this.ConfirmPassErrorLabelSU.ForeColor = System.Drawing.Color.Red;
+            this.ConfirmPassErrorLabelSU.Location = new System.Drawing.Point(261, 446);
+            this.ConfirmPassErrorLabelSU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ConfirmPassErrorLabelSU.Name = "ConfirmPassErrorLabelSU";
+            this.ConfirmPassErrorLabelSU.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ConfirmPassErrorLabelSU.Size = new System.Drawing.Size(36, 16);
+            this.ConfirmPassErrorLabelSU.TabIndex = 19;
+            this.ConfirmPassErrorLabelSU.Text = "Error";
+            this.ConfirmPassErrorLabelSU.Visible = false;
+            // 
+            // ConfirmPasswordTextBoxSU
+            // 
+            this.ConfirmPasswordTextBoxSU.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmPasswordTextBoxSU.Location = new System.Drawing.Point(264, 383);
+            this.ConfirmPasswordTextBoxSU.Margin = new System.Windows.Forms.Padding(4);
+            this.ConfirmPasswordTextBoxSU.MaxLength = 24;
+            this.ConfirmPasswordTextBoxSU.Name = "ConfirmPasswordTextBoxSU";
+            this.ConfirmPasswordTextBoxSU.PasswordChar = '*';
+            this.ConfirmPasswordTextBoxSU.Size = new System.Drawing.Size(709, 33);
+            this.ConfirmPasswordTextBoxSU.TabIndex = 18;
+            this.ConfirmPasswordTextBoxSU.UseSystemPasswordChar = true;
+            // 
+            // ConfirmPassLabel
+            // 
+            this.ConfirmPassLabel.AutoSize = true;
+            this.ConfirmPassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfirmPassLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConfirmPassLabel.Location = new System.Drawing.Point(12, 385);
+            this.ConfirmPassLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ConfirmPassLabel.Name = "ConfirmPassLabel";
+            this.ConfirmPassLabel.Size = new System.Drawing.Size(244, 31);
+            this.ConfirmPassLabel.TabIndex = 17;
+            this.ConfirmPassLabel.Text = "Confirm Password:";
+            // 
+            // PasswordErrorLabelSU
+            // 
+            this.PasswordErrorLabelSU.AutoSize = true;
+            this.PasswordErrorLabelSU.ForeColor = System.Drawing.Color.Red;
+            this.PasswordErrorLabelSU.Location = new System.Drawing.Point(261, 308);
+            this.PasswordErrorLabelSU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PasswordErrorLabelSU.Name = "PasswordErrorLabelSU";
+            this.PasswordErrorLabelSU.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PasswordErrorLabelSU.Size = new System.Drawing.Size(36, 16);
+            this.PasswordErrorLabelSU.TabIndex = 16;
+            this.PasswordErrorLabelSU.Text = "Error";
+            this.PasswordErrorLabelSU.Visible = false;
+            // 
+            // EmailErrorLabelSU
+            // 
+            this.EmailErrorLabelSU.AutoSize = true;
+            this.EmailErrorLabelSU.ForeColor = System.Drawing.Color.Red;
+            this.EmailErrorLabelSU.Location = new System.Drawing.Point(261, 168);
+            this.EmailErrorLabelSU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EmailErrorLabelSU.Name = "EmailErrorLabelSU";
+            this.EmailErrorLabelSU.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.EmailErrorLabelSU.Size = new System.Drawing.Size(36, 16);
+            this.EmailErrorLabelSU.TabIndex = 15;
+            this.EmailErrorLabelSU.Text = "Error";
+            this.EmailErrorLabelSU.Visible = false;
+            // 
+            // SubmitSUButton
+            // 
+            this.SubmitSUButton.BackColor = System.Drawing.SystemColors.Control;
+            this.SubmitSUButton.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.SubmitSUButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.SubmitSUButton.BorderRadius = 20;
+            this.SubmitSUButton.BorderSize = 0;
+            this.SubmitSUButton.FlatAppearance.BorderSize = 0;
+            this.SubmitSUButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SubmitSUButton.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SubmitSUButton.ForeColor = System.Drawing.Color.Black;
+            this.SubmitSUButton.Location = new System.Drawing.Point(451, 571);
+            this.SubmitSUButton.Margin = new System.Windows.Forms.Padding(4);
+            this.SubmitSUButton.Name = "SubmitSUButton";
+            this.SubmitSUButton.Size = new System.Drawing.Size(452, 80);
+            this.SubmitSUButton.TabIndex = 14;
+            this.SubmitSUButton.Text = "Submit";
+            this.SubmitSUButton.TextColor = System.Drawing.Color.Black;
+            this.SubmitSUButton.UseVisualStyleBackColor = false;
+            this.SubmitSUButton.Click += new System.EventHandler(this.SubmitSUButton_Click);
+            // 
+            // PasswordTextBoxSU
+            // 
+            this.PasswordTextBoxSU.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswordTextBoxSU.Location = new System.Drawing.Point(264, 248);
+            this.PasswordTextBoxSU.Margin = new System.Windows.Forms.Padding(4);
+            this.PasswordTextBoxSU.MaxLength = 24;
+            this.PasswordTextBoxSU.Name = "PasswordTextBoxSU";
+            this.PasswordTextBoxSU.PasswordChar = '*';
+            this.PasswordTextBoxSU.Size = new System.Drawing.Size(709, 33);
+            this.PasswordTextBoxSU.TabIndex = 13;
+            this.PasswordTextBoxSU.UseSystemPasswordChar = true;
+            // 
+            // EmailTextBoxSU
+            // 
+            this.EmailTextBoxSU.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailTextBoxSU.Location = new System.Drawing.Point(264, 115);
+            this.EmailTextBoxSU.Margin = new System.Windows.Forms.Padding(4);
+            this.EmailTextBoxSU.MaxLength = 254;
+            this.EmailTextBoxSU.Name = "EmailTextBoxSU";
+            this.EmailTextBoxSU.Size = new System.Drawing.Size(709, 33);
+            this.EmailTextBoxSU.TabIndex = 12;
+            // 
+            // PasswdLabelSU
+            // 
+            this.PasswdLabelSU.AutoSize = true;
+            this.PasswdLabelSU.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasswdLabelSU.ForeColor = System.Drawing.SystemColors.Control;
+            this.PasswdLabelSU.Location = new System.Drawing.Point(12, 247);
+            this.PasswdLabelSU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PasswdLabelSU.Name = "PasswdLabelSU";
+            this.PasswdLabelSU.Size = new System.Drawing.Size(142, 31);
+            this.PasswdLabelSU.TabIndex = 11;
+            this.PasswdLabelSU.Text = "Password:";
+            // 
+            // EmailLabelSU
+            // 
+            this.EmailLabelSU.AutoSize = true;
+            this.EmailLabelSU.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailLabelSU.ForeColor = System.Drawing.SystemColors.Control;
+            this.EmailLabelSU.Location = new System.Drawing.Point(12, 114);
+            this.EmailLabelSU.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EmailLabelSU.Name = "EmailLabelSU";
+            this.EmailLabelSU.Size = new System.Drawing.Size(89, 31);
+            this.EmailLabelSU.TabIndex = 10;
+            this.EmailLabelSU.Text = "Email:";
+            // 
+            // SignUpLabel
+            // 
+            this.SignUpLabel.AutoSize = true;
+            this.SignUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignUpLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.SignUpLabel.Location = new System.Drawing.Point(566, 7);
+            this.SignUpLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.SignUpLabel.Name = "SignUpLabel";
+            this.SignUpLabel.Size = new System.Drawing.Size(242, 69);
+            this.SignUpLabel.TabIndex = 9;
+            this.SignUpLabel.Text = "Sign Up";
+            // 
+            // LogoSU
+            // 
+            this.LogoSU.Image = ((System.Drawing.Image)(resources.GetObject("LogoSU.Image")));
+            this.LogoSU.InitialImage = ((System.Drawing.Image)(resources.GetObject("LogoSU.InitialImage")));
+            this.LogoSU.Location = new System.Drawing.Point(1277, 7);
+            this.LogoSU.Margin = new System.Windows.Forms.Padding(4);
+            this.LogoSU.Name = "LogoSU";
+            this.LogoSU.Size = new System.Drawing.Size(49, 41);
+            this.LogoSU.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LogoSU.TabIndex = 1;
+            this.LogoSU.TabStop = false;
+            this.LogoSU.Click += new System.EventHandler(this.Logo_Click);
             // 
             // InitialScreens
             // 
@@ -315,6 +521,9 @@ namespace SimuSecApp
             this.LoginScreen.ResumeLayout(false);
             this.LoginScreen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
+            this.SignUpScreen.ResumeLayout(false);
+            this.SignUpScreen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoSU)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -338,6 +547,20 @@ namespace SimuSecApp
         private RJButton SubmitButton;
         private System.Windows.Forms.Label PasswordErrorLabel;
         private System.Windows.Forms.Label EmailErrorLabel;
+        private System.Windows.Forms.TabPage SignUpScreen;
+        private System.Windows.Forms.PictureBox LogoSU;
+        private System.Windows.Forms.Label PasswordErrorLabelSU;
+        private System.Windows.Forms.Label EmailErrorLabelSU;
+        private RJButton SubmitSUButton;
+        private System.Windows.Forms.TextBox PasswordTextBoxSU;
+        private System.Windows.Forms.TextBox EmailTextBoxSU;
+        private System.Windows.Forms.Label PasswdLabelSU;
+        private System.Windows.Forms.Label EmailLabelSU;
+        private System.Windows.Forms.Label SignUpLabel;
+        private System.Windows.Forms.Label CurrentDateLabelSignUp;
+        private System.Windows.Forms.Label ConfirmPassErrorLabelSU;
+        private System.Windows.Forms.TextBox ConfirmPasswordTextBoxSU;
+        private System.Windows.Forms.Label ConfirmPassLabel;
     }
 }
 
