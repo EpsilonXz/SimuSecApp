@@ -49,7 +49,7 @@ namespace SimuSecApp
 
         private void ExtendLicenseButton_Click(object sender, EventArgs e)
         {
-
+            tabControl1.SelectedTab = ExtendLicenseScreen;
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)
@@ -162,6 +162,161 @@ namespace SimuSecApp
             {
                 ConfirmPassErrorLabelSU.Visible = false;
             }
+        }
+
+
+        private void Plan1MonthButton_Click(object sender, EventArgs e)
+        {
+            Plan1MonthButton.BackColor = Color.RoyalBlue;
+            Plan1PriceLabel.BackColor  = Color.RoyalBlue;
+
+            // Disable the other 2 buttons
+            Plan6MonthButton.BackColor = Color.MidnightBlue;
+            Plan2PriceLabel.BackColor  = Color.MidnightBlue;
+
+            Plan12MonthButton.BackColor = Color.MidnightBlue;
+            Plan3PriceLabel.BackColor   = Color.MidnightBlue;
+        }
+
+        private void Plan6MonthButton_Click(object sender, EventArgs e)
+        {
+            Plan6MonthButton.BackColor = Color.RoyalBlue;
+            Plan2PriceLabel.BackColor  = Color.RoyalBlue;
+
+            // Disable the other 2 buttons
+            Plan1MonthButton.BackColor = Color.MidnightBlue;
+            Plan1PriceLabel.BackColor  = Color.MidnightBlue;
+
+            Plan12MonthButton.BackColor = Color.MidnightBlue;
+            Plan3PriceLabel.BackColor   = Color.MidnightBlue;
+        }
+        private void Plan12MonthButton_Click(object sender, EventArgs e)
+        {
+            Plan12MonthButton.BackColor = Color.RoyalBlue;
+            Plan3PriceLabel.BackColor   = Color.RoyalBlue;
+
+            // Disable the other 2 buttons
+            Plan1MonthButton.BackColor = Color.MidnightBlue;
+            Plan1PriceLabel.BackColor  = Color.MidnightBlue;
+
+            Plan6MonthButton.BackColor = Color.MidnightBlue;
+            Plan2PriceLabel.BackColor = Color.MidnightBlue;
+        }
+
+        private void LogoEXL1_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = FirstPage;
+        }
+
+        private void CheckoutButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Plan1PriceLabel_Click(object sender, EventArgs e)
+        {
+            Plan1MonthButton.BackColor = Color.RoyalBlue;
+            Plan1PriceLabel.BackColor = Color.RoyalBlue;
+
+            // Disable the other 2 buttons
+            Plan6MonthButton.BackColor = Color.MidnightBlue;
+            Plan2PriceLabel.BackColor = Color.MidnightBlue;
+
+            Plan12MonthButton.BackColor = Color.MidnightBlue;
+            Plan3PriceLabel.BackColor = Color.MidnightBlue;
+        }
+
+        private void Plan2PriceLabel_Click(object sender, EventArgs e)
+        {
+            Plan6MonthButton.BackColor = Color.RoyalBlue;
+            Plan2PriceLabel.BackColor = Color.RoyalBlue;
+
+            // Disable the other 2 buttons
+            Plan1MonthButton.BackColor = Color.MidnightBlue;
+            Plan1PriceLabel.BackColor = Color.MidnightBlue;
+
+            Plan12MonthButton.BackColor = Color.MidnightBlue;
+            Plan3PriceLabel.BackColor = Color.MidnightBlue;
+        }
+
+        private void Plan3PriceLabel_Click(object sender, EventArgs e)
+        {
+            Plan12MonthButton.BackColor = Color.RoyalBlue;
+            Plan3PriceLabel.BackColor = Color.RoyalBlue;
+
+            // Disable the other 2 buttons
+            Plan1MonthButton.BackColor = Color.MidnightBlue;
+            Plan1PriceLabel.BackColor = Color.MidnightBlue;
+
+            Plan6MonthButton.BackColor = Color.MidnightBlue;
+            Plan2PriceLabel.BackColor = Color.MidnightBlue;
+        }
+
+        private void CardExpirationDateMonths_Enter(object sender, EventArgs e)
+        {
+            if (CardExpirationDateMonths.Text == "MM")
+            {
+                CardExpirationDateMonths.Text = "";
+                CardExpirationDateMonths.ForeColor = Color.Black;
+            }
+        }
+
+        private void CardExpirationDateYears_Enter(object sender, EventArgs e)
+        {
+            if (CardExpirationDateYears.Text == "YY")
+            {
+                CardExpirationDateYears.Text = "";
+                CardExpirationDateYears.ForeColor = Color.Black;
+            }
+        }
+
+        private void CardExpirationDateMonths_Leave(object sender, EventArgs e)
+        {
+            if (CardExpirationDateMonths.Text == "")
+            {
+                CardExpirationDateMonths.Text = "MM";
+                CardExpirationDateMonths.ForeColor = Color.Silver;
+            }
+        }
+
+        private void CardExpirationDateYears_Leave(object sender, EventArgs e)
+        {
+            if (CardExpirationDateYears.Text == "")
+            {
+                CardExpirationDateYears.Text = "YY";
+                CardExpirationDateYears.ForeColor = Color.Silver;
+            }
+        }
+
+        private void CVVTextBox_Enter(object sender, EventArgs e)
+        {
+            if (CardCVVTextBox.Text == "XXX")
+            {
+                CardCVVTextBox.Text = "";
+                CardCVVTextBox.ForeColor = Color.Black;
+            }
+        }
+
+        private void CVVTextBox_Leave(object sender, EventArgs e)
+        {
+            if (CardCVVTextBox.Text == "")
+            {
+                CardCVVTextBox.Text = "XXX";
+                CardCVVTextBox.ForeColor = Color.Silver;
+            }
+        }
+
+        private void PaymentButtton_Click(object sender, EventArgs e)
+        {
+            _client.Send("PAY"); // Initial msg
+
+            string cardHolderNameToSend     = protocol.PackCardHolderNameFormat(CardHolderNameTextBox.Text);
+            string cardNumberToSend         = protocol.PackCardNumberFormat(CardNumberTextBox.Text);
+            string cardExpirationDateToSend = protocol.PackCardExpirationDateFormat(CardExpirationDateMonths.Text,
+                                                                                    CardExpirationDateYears.Text);
+            string cardCVVToSend            = protocol.PackCardCVVFormat(CardCVVTextBox.Text);
+
+            MessageBox.Show("Well Done!");
         }
     }
 }

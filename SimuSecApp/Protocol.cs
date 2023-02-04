@@ -8,14 +8,32 @@ namespace SimuSecApp
 {
     public class Protocol : IProtocol
     {
+        private string TestIndicator = "TEST:::";
         public string PackUsernameFormat(string username)
         {
-            return "TESTUSER:::" + username;
+            return TestIndicator + username;
         }
         
         public string PackPasswordFormat(string password)
         {
-            return "TESTPASS:::" + password;
+            return TestIndicator + password;
+        }
+        public string PackCardHolderNameFormat(string cardHolderName)
+        {
+            return TestIndicator + cardHolderName;
+        }
+        public string PackCardNumberFormat(string cardNumber)
+        {
+            return TestIndicator + cardNumber;
+        }
+        public string PackCardExpirationDateFormat (string cardExpirationDateMonths,
+                                                    string cardExpirationDateYears)
+        {
+            return TestIndicator + cardExpirationDateMonths + "/" + cardExpirationDateYears;
+        }
+        public string PackCardCVVFormat (string cardCVV)
+        {
+            return TestIndicator + cardCVV;
         }
 
         

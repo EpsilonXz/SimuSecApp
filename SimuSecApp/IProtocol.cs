@@ -8,9 +8,14 @@ namespace SimuSecApp
 {
     public interface IProtocol
     {
-        string PackUsernameFormat(string username);
-        string PackPasswordFormat(string password);
-        bool isVerified(string LoopBackValue);
-        string GetCurrentTimeAsString();
+        string PackUsernameFormat (string username);
+        string PackPasswordFormat (string password);
+        bool isVerified (string LoopBackValue);
+        string GetCurrentTimeAsString ();
+        string PackCardHolderNameFormat (string cardHolderName);
+        string PackCardNumberFormat (string cardNumber);
+        string PackCardExpirationDateFormat (string cardExpirationDateMonths,
+                                            string cardExpirationDateYears);
+        string PackCardCVVFormat (string cardCVV);
     }
 }

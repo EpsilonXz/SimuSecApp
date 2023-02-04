@@ -60,12 +60,42 @@ namespace SimuSecApp
             this.EmailLabelSU = new System.Windows.Forms.Label();
             this.SignUpLabel = new System.Windows.Forms.Label();
             this.LogoSU = new System.Windows.Forms.PictureBox();
+            this.ExtendLicenseScreen = new System.Windows.Forms.TabPage();
+            this.CheckoutButton = new SimuSecApp.RJButton();
+            this.Plan1PriceLabel = new System.Windows.Forms.Label();
+            this.Plan2PriceLabel = new System.Windows.Forms.Label();
+            this.Plan3PriceLabel = new System.Windows.Forms.Label();
+            this.Plan12MonthButton = new SimuSecApp.RJButton();
+            this.Plan6MonthButton = new SimuSecApp.RJButton();
+            this.Plan1MonthButton = new SimuSecApp.RJButton();
+            this.LogoEXL1 = new System.Windows.Forms.PictureBox();
+            this.ChoosePlanLabel = new System.Windows.Forms.Label();
+            this.PaymentScreen = new System.Windows.Forms.TabPage();
+            this.CardNumberErrorLabel = new System.Windows.Forms.Label();
+            this.CardHolderNameErrorLabel = new System.Windows.Forms.Label();
+            this.PaymentButtton = new SimuSecApp.RJButton();
+            this.CardNumberTextBox = new System.Windows.Forms.TextBox();
+            this.CardHolderNameTextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PaymentLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CardExpirationDateMonths = new System.Windows.Forms.TextBox();
+            this.ForwardSlashEXDLabel = new System.Windows.Forms.Label();
+            this.CardExpirationDateYears = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CardCVVTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.FirstPage.SuspendLayout();
             this.LoginScreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SignUpScreen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoSU)).BeginInit();
+            this.ExtendLicenseScreen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoEXL1)).BeginInit();
+            this.PaymentScreen.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -73,6 +103,8 @@ namespace SimuSecApp
             this.tabControl1.Controls.Add(this.FirstPage);
             this.tabControl1.Controls.Add(this.LoginScreen);
             this.tabControl1.Controls.Add(this.SignUpScreen);
+            this.tabControl1.Controls.Add(this.ExtendLicenseScreen);
+            this.tabControl1.Controls.Add(this.PaymentScreen);
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Multiline = true;
@@ -500,6 +532,393 @@ namespace SimuSecApp
             this.LogoSU.TabStop = false;
             this.LogoSU.Click += new System.EventHandler(this.Logo_Click);
             // 
+            // ExtendLicenseScreen
+            // 
+            this.ExtendLicenseScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
+            this.ExtendLicenseScreen.Controls.Add(this.CheckoutButton);
+            this.ExtendLicenseScreen.Controls.Add(this.Plan1PriceLabel);
+            this.ExtendLicenseScreen.Controls.Add(this.Plan2PriceLabel);
+            this.ExtendLicenseScreen.Controls.Add(this.Plan3PriceLabel);
+            this.ExtendLicenseScreen.Controls.Add(this.Plan12MonthButton);
+            this.ExtendLicenseScreen.Controls.Add(this.Plan6MonthButton);
+            this.ExtendLicenseScreen.Controls.Add(this.Plan1MonthButton);
+            this.ExtendLicenseScreen.Controls.Add(this.LogoEXL1);
+            this.ExtendLicenseScreen.Controls.Add(this.ChoosePlanLabel);
+            this.ExtendLicenseScreen.Location = new System.Drawing.Point(4, 25);
+            this.ExtendLicenseScreen.Name = "ExtendLicenseScreen";
+            this.ExtendLicenseScreen.Padding = new System.Windows.Forms.Padding(3);
+            this.ExtendLicenseScreen.Size = new System.Drawing.Size(1337, 705);
+            this.ExtendLicenseScreen.TabIndex = 3;
+            this.ExtendLicenseScreen.Text = "ExtendLicenseScreen";
+            // 
+            // CheckoutButton
+            // 
+            this.CheckoutButton.BackColor = System.Drawing.SystemColors.Control;
+            this.CheckoutButton.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.CheckoutButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.CheckoutButton.BorderRadius = 20;
+            this.CheckoutButton.BorderSize = 0;
+            this.CheckoutButton.FlatAppearance.BorderSize = 0;
+            this.CheckoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CheckoutButton.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckoutButton.ForeColor = System.Drawing.Color.Black;
+            this.CheckoutButton.Location = new System.Drawing.Point(454, 568);
+            this.CheckoutButton.Margin = new System.Windows.Forms.Padding(4);
+            this.CheckoutButton.Name = "CheckoutButton";
+            this.CheckoutButton.Size = new System.Drawing.Size(452, 80);
+            this.CheckoutButton.TabIndex = 16;
+            this.CheckoutButton.Text = "Checkout";
+            this.CheckoutButton.TextColor = System.Drawing.Color.Black;
+            this.CheckoutButton.UseVisualStyleBackColor = false;
+            this.CheckoutButton.Click += new System.EventHandler(this.CheckoutButton_Click);
+            // 
+            // Plan1PriceLabel
+            // 
+            this.Plan1PriceLabel.AutoSize = true;
+            this.Plan1PriceLabel.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Plan1PriceLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Plan1PriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Plan1PriceLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.Plan1PriceLabel.Location = new System.Drawing.Point(246, 341);
+            this.Plan1PriceLabel.Name = "Plan1PriceLabel";
+            this.Plan1PriceLabel.Size = new System.Drawing.Size(91, 32);
+            this.Plan1PriceLabel.TabIndex = 15;
+            this.Plan1PriceLabel.Text = "$5.99";
+            this.Plan1PriceLabel.Click += new System.EventHandler(this.Plan1PriceLabel_Click);
+            // 
+            // Plan2PriceLabel
+            // 
+            this.Plan2PriceLabel.AutoSize = true;
+            this.Plan2PriceLabel.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Plan2PriceLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Plan2PriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Plan2PriceLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.Plan2PriceLabel.Location = new System.Drawing.Point(628, 341);
+            this.Plan2PriceLabel.Name = "Plan2PriceLabel";
+            this.Plan2PriceLabel.Size = new System.Drawing.Size(108, 32);
+            this.Plan2PriceLabel.TabIndex = 14;
+            this.Plan2PriceLabel.Text = "$24.99";
+            this.Plan2PriceLabel.Click += new System.EventHandler(this.Plan2PriceLabel_Click);
+            // 
+            // Plan3PriceLabel
+            // 
+            this.Plan3PriceLabel.AutoSize = true;
+            this.Plan3PriceLabel.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Plan3PriceLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Plan3PriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Plan3PriceLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.Plan3PriceLabel.Location = new System.Drawing.Point(1009, 341);
+            this.Plan3PriceLabel.Name = "Plan3PriceLabel";
+            this.Plan3PriceLabel.Size = new System.Drawing.Size(108, 32);
+            this.Plan3PriceLabel.TabIndex = 13;
+            this.Plan3PriceLabel.Text = "$44.99";
+            this.Plan3PriceLabel.Click += new System.EventHandler(this.Plan3PriceLabel_Click);
+            // 
+            // Plan12MonthButton
+            // 
+            this.Plan12MonthButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Plan12MonthButton.BackgroundColor = System.Drawing.Color.MidnightBlue;
+            this.Plan12MonthButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.Plan12MonthButton.BorderRadius = 0;
+            this.Plan12MonthButton.BorderSize = 0;
+            this.Plan12MonthButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Plan12MonthButton.FlatAppearance.BorderSize = 0;
+            this.Plan12MonthButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Plan12MonthButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Plan12MonthButton.ForeColor = System.Drawing.Color.White;
+            this.Plan12MonthButton.Location = new System.Drawing.Point(902, 169);
+            this.Plan12MonthButton.Name = "Plan12MonthButton";
+            this.Plan12MonthButton.Size = new System.Drawing.Size(331, 301);
+            this.Plan12MonthButton.TabIndex = 12;
+            this.Plan12MonthButton.Text = "12 Month";
+            this.Plan12MonthButton.TextColor = System.Drawing.Color.White;
+            this.Plan12MonthButton.UseVisualStyleBackColor = false;
+            this.Plan12MonthButton.Click += new System.EventHandler(this.Plan12MonthButton_Click);
+            // 
+            // Plan6MonthButton
+            // 
+            this.Plan6MonthButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Plan6MonthButton.BackgroundColor = System.Drawing.Color.MidnightBlue;
+            this.Plan6MonthButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.Plan6MonthButton.BorderRadius = 0;
+            this.Plan6MonthButton.BorderSize = 0;
+            this.Plan6MonthButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Plan6MonthButton.FlatAppearance.BorderSize = 0;
+            this.Plan6MonthButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Plan6MonthButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Plan6MonthButton.ForeColor = System.Drawing.Color.White;
+            this.Plan6MonthButton.Location = new System.Drawing.Point(518, 169);
+            this.Plan6MonthButton.Name = "Plan6MonthButton";
+            this.Plan6MonthButton.Size = new System.Drawing.Size(331, 301);
+            this.Plan6MonthButton.TabIndex = 11;
+            this.Plan6MonthButton.Text = "6 Month";
+            this.Plan6MonthButton.TextColor = System.Drawing.Color.White;
+            this.Plan6MonthButton.UseVisualStyleBackColor = false;
+            this.Plan6MonthButton.Click += new System.EventHandler(this.Plan6MonthButton_Click);
+            // 
+            // Plan1MonthButton
+            // 
+            this.Plan1MonthButton.BackColor = System.Drawing.Color.MidnightBlue;
+            this.Plan1MonthButton.BackgroundColor = System.Drawing.Color.MidnightBlue;
+            this.Plan1MonthButton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.Plan1MonthButton.BorderRadius = 0;
+            this.Plan1MonthButton.BorderSize = 0;
+            this.Plan1MonthButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Plan1MonthButton.FlatAppearance.BorderSize = 0;
+            this.Plan1MonthButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Plan1MonthButton.Font = new System.Drawing.Font("Microsoft YaHei UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Plan1MonthButton.ForeColor = System.Drawing.Color.White;
+            this.Plan1MonthButton.Location = new System.Drawing.Point(134, 169);
+            this.Plan1MonthButton.Name = "Plan1MonthButton";
+            this.Plan1MonthButton.Size = new System.Drawing.Size(331, 301);
+            this.Plan1MonthButton.TabIndex = 10;
+            this.Plan1MonthButton.TabStop = false;
+            this.Plan1MonthButton.Text = "1 Month ";
+            this.Plan1MonthButton.TextColor = System.Drawing.Color.White;
+            this.Plan1MonthButton.UseVisualStyleBackColor = false;
+            this.Plan1MonthButton.Click += new System.EventHandler(this.Plan1MonthButton_Click);
+            // 
+            // LogoEXL1
+            // 
+            this.LogoEXL1.Image = ((System.Drawing.Image)(resources.GetObject("LogoEXL1.Image")));
+            this.LogoEXL1.InitialImage = ((System.Drawing.Image)(resources.GetObject("LogoEXL1.InitialImage")));
+            this.LogoEXL1.Location = new System.Drawing.Point(1277, 7);
+            this.LogoEXL1.Margin = new System.Windows.Forms.Padding(4);
+            this.LogoEXL1.Name = "LogoEXL1";
+            this.LogoEXL1.Size = new System.Drawing.Size(49, 41);
+            this.LogoEXL1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.LogoEXL1.TabIndex = 9;
+            this.LogoEXL1.TabStop = false;
+            this.LogoEXL1.Click += new System.EventHandler(this.LogoEXL1_Click);
+            // 
+            // ChoosePlanLabel
+            // 
+            this.ChoosePlanLabel.AutoSize = true;
+            this.ChoosePlanLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ChoosePlanLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.ChoosePlanLabel.Location = new System.Drawing.Point(449, 3);
+            this.ChoosePlanLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ChoosePlanLabel.Name = "ChoosePlanLabel";
+            this.ChoosePlanLabel.Size = new System.Drawing.Size(475, 69);
+            this.ChoosePlanLabel.TabIndex = 2;
+            this.ChoosePlanLabel.Text = "Select Your Plan";
+            // 
+            // PaymentScreen
+            // 
+            this.PaymentScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
+            this.PaymentScreen.Controls.Add(this.CardCVVTextBox);
+            this.PaymentScreen.Controls.Add(this.label7);
+            this.PaymentScreen.Controls.Add(this.CardExpirationDateYears);
+            this.PaymentScreen.Controls.Add(this.ForwardSlashEXDLabel);
+            this.PaymentScreen.Controls.Add(this.CardExpirationDateMonths);
+            this.PaymentScreen.Controls.Add(this.label6);
+            this.PaymentScreen.Controls.Add(this.CardNumberErrorLabel);
+            this.PaymentScreen.Controls.Add(this.CardHolderNameErrorLabel);
+            this.PaymentScreen.Controls.Add(this.PaymentButtton);
+            this.PaymentScreen.Controls.Add(this.CardNumberTextBox);
+            this.PaymentScreen.Controls.Add(this.CardHolderNameTextBox);
+            this.PaymentScreen.Controls.Add(this.label4);
+            this.PaymentScreen.Controls.Add(this.label5);
+            this.PaymentScreen.Controls.Add(this.PaymentLabel);
+            this.PaymentScreen.Controls.Add(this.pictureBox1);
+            this.PaymentScreen.Location = new System.Drawing.Point(4, 25);
+            this.PaymentScreen.Name = "PaymentScreen";
+            this.PaymentScreen.Size = new System.Drawing.Size(1337, 705);
+            this.PaymentScreen.TabIndex = 4;
+            this.PaymentScreen.Text = "PaymentScreen";
+            // 
+            // CardNumberErrorLabel
+            // 
+            this.CardNumberErrorLabel.AutoSize = true;
+            this.CardNumberErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.CardNumberErrorLabel.Location = new System.Drawing.Point(274, 326);
+            this.CardNumberErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CardNumberErrorLabel.Name = "CardNumberErrorLabel";
+            this.CardNumberErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CardNumberErrorLabel.Size = new System.Drawing.Size(36, 16);
+            this.CardNumberErrorLabel.TabIndex = 17;
+            this.CardNumberErrorLabel.Text = "Error";
+            this.CardNumberErrorLabel.Visible = false;
+            // 
+            // CardHolderNameErrorLabel
+            // 
+            this.CardHolderNameErrorLabel.AutoSize = true;
+            this.CardHolderNameErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.CardHolderNameErrorLabel.Location = new System.Drawing.Point(274, 188);
+            this.CardHolderNameErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CardHolderNameErrorLabel.Name = "CardHolderNameErrorLabel";
+            this.CardHolderNameErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CardHolderNameErrorLabel.Size = new System.Drawing.Size(36, 16);
+            this.CardHolderNameErrorLabel.TabIndex = 16;
+            this.CardHolderNameErrorLabel.Text = "Error";
+            this.CardHolderNameErrorLabel.Visible = false;
+            // 
+            // PaymentButtton
+            // 
+            this.PaymentButtton.BackColor = System.Drawing.SystemColors.Control;
+            this.PaymentButtton.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.PaymentButtton.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.PaymentButtton.BorderRadius = 20;
+            this.PaymentButtton.BorderSize = 0;
+            this.PaymentButtton.FlatAppearance.BorderSize = 0;
+            this.PaymentButtton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PaymentButtton.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaymentButtton.ForeColor = System.Drawing.Color.Black;
+            this.PaymentButtton.Location = new System.Drawing.Point(453, 594);
+            this.PaymentButtton.Margin = new System.Windows.Forms.Padding(4);
+            this.PaymentButtton.Name = "PaymentButtton";
+            this.PaymentButtton.Size = new System.Drawing.Size(452, 80);
+            this.PaymentButtton.TabIndex = 15;
+            this.PaymentButtton.Text = "Pay";
+            this.PaymentButtton.TextColor = System.Drawing.Color.Black;
+            this.PaymentButtton.UseVisualStyleBackColor = false;
+            this.PaymentButtton.Click += new System.EventHandler(this.PaymentButtton_Click);
+            // 
+            // CardNumberTextBox
+            // 
+            this.CardNumberTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardNumberTextBox.Location = new System.Drawing.Point(277, 270);
+            this.CardNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.CardNumberTextBox.MaxLength = 20;
+            this.CardNumberTextBox.Name = "CardNumberTextBox";
+            this.CardNumberTextBox.PasswordChar = '*';
+            this.CardNumberTextBox.Size = new System.Drawing.Size(709, 33);
+            this.CardNumberTextBox.TabIndex = 14;
+            this.CardNumberTextBox.UseSystemPasswordChar = true;
+            // 
+            // CardHolderNameTextBox
+            // 
+            this.CardHolderNameTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardHolderNameTextBox.Location = new System.Drawing.Point(277, 137);
+            this.CardHolderNameTextBox.Margin = new System.Windows.Forms.Padding(4);
+            this.CardHolderNameTextBox.MaxLength = 254;
+            this.CardHolderNameTextBox.Name = "CardHolderNameTextBox";
+            this.CardHolderNameTextBox.Size = new System.Drawing.Size(709, 33);
+            this.CardHolderNameTextBox.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.Control;
+            this.label4.Location = new System.Drawing.Point(14, 270);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(184, 31);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Card Number:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.Control;
+            this.label5.Location = new System.Drawing.Point(14, 137);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(247, 31);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Card Holder Name:";
+            // 
+            // PaymentLabel
+            // 
+            this.PaymentLabel.AutoSize = true;
+            this.PaymentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaymentLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.PaymentLabel.Location = new System.Drawing.Point(318, 4);
+            this.PaymentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.PaymentLabel.Name = "PaymentLabel";
+            this.PaymentLabel.Size = new System.Drawing.Size(730, 69);
+            this.PaymentLabel.TabIndex = 10;
+            this.PaymentLabel.Text = "Enter you card information";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(1277, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(49, 41);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(271, 414);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(207, 31);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Expiration Date:";
+            // 
+            // CardExpirationDateMonths
+            // 
+            this.CardExpirationDateMonths.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardExpirationDateMonths.Location = new System.Drawing.Point(484, 418);
+            this.CardExpirationDateMonths.MaxLength = 2;
+            this.CardExpirationDateMonths.Name = "CardExpirationDateMonths";
+            this.CardExpirationDateMonths.Size = new System.Drawing.Size(57, 29);
+            this.CardExpirationDateMonths.TabIndex = 19;
+            this.CardExpirationDateMonths.Text = "MM";
+            this.CardExpirationDateMonths.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CardExpirationDateMonths.Enter += new System.EventHandler(this.CardExpirationDateMonths_Enter);
+            this.CardExpirationDateMonths.Leave += new System.EventHandler(this.CardExpirationDateMonths_Leave);
+            // 
+            // ForwardSlashEXDLabel
+            // 
+            this.ForwardSlashEXDLabel.AutoSize = true;
+            this.ForwardSlashEXDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForwardSlashEXDLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.ForwardSlashEXDLabel.Location = new System.Drawing.Point(542, 412);
+            this.ForwardSlashEXDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ForwardSlashEXDLabel.Name = "ForwardSlashEXDLabel";
+            this.ForwardSlashEXDLabel.Size = new System.Drawing.Size(26, 39);
+            this.ForwardSlashEXDLabel.TabIndex = 20;
+            this.ForwardSlashEXDLabel.Text = "/";
+            // 
+            // CardExpirationDateYears
+            // 
+            this.CardExpirationDateYears.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardExpirationDateYears.Location = new System.Drawing.Point(565, 418);
+            this.CardExpirationDateYears.MaxLength = 2;
+            this.CardExpirationDateYears.Name = "CardExpirationDateYears";
+            this.CardExpirationDateYears.Size = new System.Drawing.Size(57, 29);
+            this.CardExpirationDateYears.TabIndex = 19;
+            this.CardExpirationDateYears.Text = "YY";
+            this.CardExpirationDateYears.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CardExpirationDateYears.Enter += new System.EventHandler(this.CardExpirationDateYears_Enter);
+            this.CardExpirationDateYears.Leave += new System.EventHandler(this.CardExpirationDateYears_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(702, 414);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 31);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "CVV:";
+            // 
+            // CardCVVTextBox
+            // 
+            this.CardCVVTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardCVVTextBox.Location = new System.Drawing.Point(787, 418);
+            this.CardCVVTextBox.MaxLength = 3;
+            this.CardCVVTextBox.Name = "CardCVVTextBox";
+            this.CardCVVTextBox.Size = new System.Drawing.Size(57, 29);
+            this.CardCVVTextBox.TabIndex = 23;
+            this.CardCVVTextBox.Text = "XXX";
+            this.CardCVVTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CardCVVTextBox.Enter += new System.EventHandler(this.CVVTextBox_Enter);
+            this.CardCVVTextBox.Leave += new System.EventHandler(this.CVVTextBox_Leave);
+            // 
             // InitialScreens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -524,6 +943,12 @@ namespace SimuSecApp
             this.SignUpScreen.ResumeLayout(false);
             this.SignUpScreen.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LogoSU)).EndInit();
+            this.ExtendLicenseScreen.ResumeLayout(false);
+            this.ExtendLicenseScreen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.LogoEXL1)).EndInit();
+            this.PaymentScreen.ResumeLayout(false);
+            this.PaymentScreen.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -561,6 +986,32 @@ namespace SimuSecApp
         private System.Windows.Forms.Label ConfirmPassErrorLabelSU;
         private System.Windows.Forms.TextBox ConfirmPasswordTextBoxSU;
         private System.Windows.Forms.Label ConfirmPassLabel;
+        private System.Windows.Forms.TabPage ExtendLicenseScreen;
+        private System.Windows.Forms.Label ChoosePlanLabel;
+        private System.Windows.Forms.PictureBox LogoEXL1;
+        private System.Windows.Forms.Label Plan1PriceLabel;
+        private System.Windows.Forms.Label Plan2PriceLabel;
+        private System.Windows.Forms.Label Plan3PriceLabel;
+        private RJButton Plan12MonthButton;
+        private RJButton Plan6MonthButton;
+        private RJButton Plan1MonthButton;
+        private RJButton CheckoutButton;
+        private System.Windows.Forms.TabPage PaymentScreen;
+        private System.Windows.Forms.TextBox CardExpirationDateMonths;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label CardNumberErrorLabel;
+        private System.Windows.Forms.Label CardHolderNameErrorLabel;
+        private RJButton PaymentButtton;
+        private System.Windows.Forms.TextBox CardNumberTextBox;
+        private System.Windows.Forms.TextBox CardHolderNameTextBox;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label PaymentLabel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label ForwardSlashEXDLabel;
+        private System.Windows.Forms.TextBox CardExpirationDateYears;
+        private System.Windows.Forms.TextBox CardCVVTextBox;
+        private System.Windows.Forms.Label label7;
     }
 }
 
