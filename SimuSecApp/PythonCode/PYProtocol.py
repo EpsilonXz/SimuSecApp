@@ -4,7 +4,6 @@ import os
 import time
 import sqlite3
 import socket
-import CreditCard
 from datetime import timedelta
 from SQL_ORM import Connection, USER_CREDS_TABLE_NAME
 
@@ -179,18 +178,12 @@ def signup(sock):
     else:
         sock.send("ERRORMSG".encode())
 
-def recv_payment(sock: socket.socket):
-    print("Got To Payment")
-
 def act_by_action(action: str, sock: socket.socket): # What to do based on the action given by Client
     if action == "LOGIN":
         login(sock)
 
     elif action == "SIGNUP":
         signup(sock)
-    
-    elif action == "PAY":
-        recv_payment(sock)
     
     else:
         print(f"Action: {action}, not found")
