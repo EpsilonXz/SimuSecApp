@@ -13,10 +13,25 @@ __author__ = "SimuSecLTD"
 BUFFER  = 1024
 CONN = Connection()
 
+def recv_length(sock: socket.socket):
+    length_str = sock.recv(4).decode()
+    length     = int(length_str)
+    print(length)
+    return length
+
+def recv(sock: socket.socket):
+    length_to_recv = recv_length(sock)
+
+    data_recvd = sock.recv(length_to_recv)
+    data       = data_recvd.decode()
+
+    return data
+
 def split_data(data: str):
     return data.split(":::")
 
 def get_data(data: str):
+    print(data)
     return split_data(data)[1]
 
 def current_unixtime_as_int() -> int:
@@ -85,12 +100,13 @@ def generate_response_key(data: str):
 
 def get_email_and_password_from_client(sock: socket.socket):
     # Receive email and password from Client
-    email_recvd = sock.recv(255) # Max Email length -> 254
-    passw_recvd = sock.recv(25) # Max passw length -> 24
+    email_recvd = recv(sock) # Max Email length -> 254
+    print(email_recvd)
+    passw_recvd = recv(sock) # Max passw length -> 24
 
     # Extract the data from the email, password
-    email = get_data(email_recvd.decode())
-    passw = get_data(passw_recvd.decode())
+    email = get_data(email_recvd)
+    passw = get_data(passw_recvd)
 
     return email, passw
 
@@ -154,8 +170,6 @@ def login(sock: socket.socket):
         else:
             sock.send("ERRORMSG".encode())
 
-    sock.send("ERRORMSG".encode())
-
 def signup(sock):
     email, passw = get_email_and_password_from_client(sock)
 
@@ -179,8 +193,33 @@ def signup(sock):
     else:
         sock.send("ERRORMSG".encode())
 
+def get_payment_creds_from_client(sock: socket.socket):
+    # recv the card info from the client
+    card_holder_name_recvd     = recv(sock)
+    card_number_recvd          = recv(sock)
+    card_expiration_date_recvd = recv(sock)
+    card_cvv_recvd             = recv(sock)
+
+    # Strip the data from the information recvd
+    card_holder_name     = get_data(card_holder_name_recvd)
+    card_number          = get_data(card_number_recvd)
+    card_expiration_date = get_data(card_expiration_date_recvd)
+    card_cvv             = get_data(card_cvv_recvd)
+
+    # return the data
+    return card_holder_name, card_number,\
+           card_expiration_date, card_cvv
+
 def recv_payment(sock: socket.socket):
-    print("Got To Payment")
+    card_holder_name, card_number,\
+    card_expiation_date, card_cvv\
+    = get_payment_creds_from_client(sock)
+
+    is_valid = CreditCard.is_valid_card_info(card_number,card_holder_name,
+                                             card_expiation_date, card_cvv)
+    
+    if is_valid: sock.send("OK".encode())
+    else: sock.send("NO".encode())
 
 def act_by_action(action: str, sock: socket.socket): # What to do based on the action given by Client
     if action == "LOGIN":

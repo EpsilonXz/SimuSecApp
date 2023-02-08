@@ -18,6 +18,7 @@ namespace SimuSecApp
     {
         Client _client = new Client();
         Protocol protocol = new Protocol();
+        string _optionPickedPrice;
 
         public InitialScreens()
         {
@@ -211,6 +212,25 @@ namespace SimuSecApp
         private void CheckoutButton_Click(object sender, EventArgs e)
         {
             
+
+            Color selectedColor = Color.RoyalBlue;
+
+            if (Plan1MonthButton.BackColor == selectedColor)
+            {
+                _optionPickedPrice = Plan1PriceLabel.Text;
+            }
+            else if(Plan6MonthButton.BackColor == selectedColor)
+            {
+                _optionPickedPrice = Plan2PriceLabel.Text;
+            }
+            else
+            {
+                _optionPickedPrice = Plan3PriceLabel.Text;
+            }
+
+            tabControl1.SelectedTab = PaymentScreen;
+            TotalPriceCart.Text = _optionPickedPrice.ToString();
+
         }
 
         private void Plan1PriceLabel_Click(object sender, EventArgs e)
@@ -310,13 +330,76 @@ namespace SimuSecApp
         {
             _client.Send("PAY"); // Initial msg
 
-            string cardHolderNameToSend     = protocol.PackCardHolderNameFormat(CardHolderNameTextBox.Text);
-            string cardNumberToSend         = protocol.PackCardNumberFormat(CardNumberTextBox.Text);
-            string cardExpirationDateToSend = protocol.PackCardExpirationDateFormat(CardExpirationDateMonths.Text,
-                                                                                    CardExpirationDateYears.Text);
-            string cardCVVToSend            = protocol.PackCardCVVFormat(CardCVVTextBox.Text);
+            if (CardExpirationDateYears.Text != "" && CardExpirationDateMonths.Text != "" &&
+                CardCVVTextBox.Text != "" && CardHolderNameTextBox.Text != "" && 
+                CardNumberTextBox.Text != "")
+            {
+                MessageBox.Show("Well Done! Sending data...");
 
-            MessageBox.Show("Well Done!");
+                string cardHolderNameToSend = protocol.PackCardHolderNameFormat(CardHolderNameTextBox.Text);
+                string cardNumberToSend = protocol.PackCardNumberFormat(CardNumberTextBox.Text);
+                string cardExpirationDateToSend = protocol.PackCardExpirationDateFormat(CardExpirationDateMonths.Text,
+                                                                                        CardExpirationDateYears.Text);
+                string cardCVVToSend = protocol.PackCardCVVFormat(CardCVVTextBox.Text);
+
+                // Send the data
+                _client.Send(cardHolderNameToSend);
+                _client.Send(cardNumberToSend);
+                _client.Send(cardExpirationDateToSend);
+                _client.Send(cardCVVToSend);
+
+                string verificationRes = _client.Receive();
+
+                if (!(protocol.isVerified(verificationRes)))
+                {
+                    MessageBox.Show("Not good!");
+                    return;
+                }
+
+                MessageBox.Show("Verified");
+            }
+
+            if (CardExpirationDateYears.Text == "" || CardExpirationDateMonths.Text == "")
+            {
+                CardExpirationDateErrorLabel.Text = "Date cannot be empty";
+                CardExpirationDateErrorLabel.Visible = true;
+            }
+            else
+            {
+                CardExpirationDateErrorLabel.Visible = false;
+            }
+            if (CardCVVTextBox.Text.Length == 0)
+            {
+                CardCVVErrorLabel.Text = "CVV Cannot be empty";
+                CardCVVErrorLabel.Visible = true;
+            }
+            else
+            {
+                CardCVVErrorLabel.Visible = false;
+            }
+            if (CardHolderNameTextBox.Text == "")
+            {
+                CardHolderNameErrorLabel.Text = "Card holder name cannot be empty";
+                CardHolderNameErrorLabel.Visible = true;
+            }
+            else
+            {
+                CardHolderNameErrorLabel.Visible = false;
+            }
+            if (CardNumberTextBox.Text == "")
+            {
+                CardNumberErrorLabel.Text = "Card number cannot be empty";
+                CardNumberErrorLabel.Visible = true;
+            }
+            else
+            {
+                CardNumberErrorLabel.Visible = false;
+            }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = ExtendLicenseScreen;
         }
     }
 }

@@ -15,7 +15,7 @@ namespace SimuSecApp
     public class Client
     {
         byte[] bytes = new byte[1024];
-        int port = 11111;
+        int port = 11112;
         string host= "127.0.0.1";
         int byteCount;
         byte[] sendData;
@@ -50,10 +50,26 @@ namespace SimuSecApp
             return receivedData;
         }
 
+        private string PackLength(string message)
+        {
+            int length = message.Length;
+            string str_len = length.ToString("D4");
+
+            return str_len;
+        }
+
+        private void SendLength(string message)
+        {
+            sendData = new byte[4];
+            sendData = Encoding.ASCII.GetBytes(PackLength(message));
+            stream = tcpClient.GetStream();
+            stream.Write(sendData, 0, sendData.Length);
+        }
         public void Send(string message)
         {
             try
             {
+                SendLength(message);
                 byteCount = Encoding.ASCII.GetByteCount(message);
                 sendData = new byte[byteCount];
                 sendData = Encoding.ASCII.GetBytes(message);

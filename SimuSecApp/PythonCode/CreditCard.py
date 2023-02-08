@@ -66,7 +66,7 @@ def is_valid_card_info(card_number, cardholder_name, expiration_date, cvv):
     return False
 
 # Example usage
-#card_number = 4388576018402626
-#cardholder_name = "John Doe"
-#expiration_date = "12/24"
-#cvv = 123
+card_number = 4417123456789113
+cardholder_name = "John Doe"
+expiration_date = "12/24"
+cvv = 123

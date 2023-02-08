@@ -71,6 +71,16 @@ namespace SimuSecApp
             this.LogoEXL1 = new System.Windows.Forms.PictureBox();
             this.ChoosePlanLabel = new System.Windows.Forms.Label();
             this.PaymentScreen = new System.Windows.Forms.TabPage();
+            this.TotalPriceCart = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CardCVVErrorLabel = new System.Windows.Forms.Label();
+            this.CardExpirationDateErrorLabel = new System.Windows.Forms.Label();
+            this.CardCVVTextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CardExpirationDateYears = new System.Windows.Forms.TextBox();
+            this.ForwardSlashEXDLabel = new System.Windows.Forms.Label();
+            this.CardExpirationDateMonths = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.CardNumberErrorLabel = new System.Windows.Forms.Label();
             this.CardHolderNameErrorLabel = new System.Windows.Forms.Label();
             this.PaymentButtton = new SimuSecApp.RJButton();
@@ -80,12 +90,6 @@ namespace SimuSecApp
             this.label5 = new System.Windows.Forms.Label();
             this.PaymentLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.CardExpirationDateMonths = new System.Windows.Forms.TextBox();
-            this.ForwardSlashEXDLabel = new System.Windows.Forms.Label();
-            this.CardExpirationDateYears = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.CardCVVTextBox = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.FirstPage.SuspendLayout();
             this.LoginScreen.SuspendLayout();
@@ -706,6 +710,10 @@ namespace SimuSecApp
             // PaymentScreen
             // 
             this.PaymentScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
+            this.PaymentScreen.Controls.Add(this.TotalPriceCart);
+            this.PaymentScreen.Controls.Add(this.label2);
+            this.PaymentScreen.Controls.Add(this.CardCVVErrorLabel);
+            this.PaymentScreen.Controls.Add(this.CardExpirationDateErrorLabel);
             this.PaymentScreen.Controls.Add(this.CardCVVTextBox);
             this.PaymentScreen.Controls.Add(this.label7);
             this.PaymentScreen.Controls.Add(this.CardExpirationDateYears);
@@ -726,6 +734,131 @@ namespace SimuSecApp
             this.PaymentScreen.Size = new System.Drawing.Size(1337, 705);
             this.PaymentScreen.TabIndex = 4;
             this.PaymentScreen.Text = "PaymentScreen";
+            // 
+            // TotalPriceCart
+            // 
+            this.TotalPriceCart.AutoSize = true;
+            this.TotalPriceCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalPriceCart.ForeColor = System.Drawing.SystemColors.Control;
+            this.TotalPriceCart.Location = new System.Drawing.Point(1153, 129);
+            this.TotalPriceCart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.TotalPriceCart.Name = "TotalPriceCart";
+            this.TotalPriceCart.Size = new System.Drawing.Size(67, 31);
+            this.TotalPriceCart.TabIndex = 27;
+            this.TotalPriceCart.Text = "$0.0";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(1115, 91);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(152, 31);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Total Price:";
+            // 
+            // CardCVVErrorLabel
+            // 
+            this.CardCVVErrorLabel.AutoSize = true;
+            this.CardCVVErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.CardCVVErrorLabel.Location = new System.Drawing.Point(795, 460);
+            this.CardCVVErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CardCVVErrorLabel.Name = "CardCVVErrorLabel";
+            this.CardCVVErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CardCVVErrorLabel.Size = new System.Drawing.Size(36, 16);
+            this.CardCVVErrorLabel.TabIndex = 25;
+            this.CardCVVErrorLabel.Text = "Error";
+            this.CardCVVErrorLabel.Visible = false;
+            // 
+            // CardExpirationDateErrorLabel
+            // 
+            this.CardExpirationDateErrorLabel.AutoSize = true;
+            this.CardExpirationDateErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.CardExpirationDateErrorLabel.Location = new System.Drawing.Point(532, 460);
+            this.CardExpirationDateErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.CardExpirationDateErrorLabel.Name = "CardExpirationDateErrorLabel";
+            this.CardExpirationDateErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CardExpirationDateErrorLabel.Size = new System.Drawing.Size(36, 16);
+            this.CardExpirationDateErrorLabel.TabIndex = 24;
+            this.CardExpirationDateErrorLabel.Text = "Error";
+            this.CardExpirationDateErrorLabel.Visible = false;
+            // 
+            // CardCVVTextBox
+            // 
+            this.CardCVVTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardCVVTextBox.Location = new System.Drawing.Point(787, 418);
+            this.CardCVVTextBox.MaxLength = 3;
+            this.CardCVVTextBox.Name = "CardCVVTextBox";
+            this.CardCVVTextBox.Size = new System.Drawing.Size(57, 29);
+            this.CardCVVTextBox.TabIndex = 23;
+            this.CardCVVTextBox.Text = "XXX";
+            this.CardCVVTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CardCVVTextBox.Enter += new System.EventHandler(this.CVVTextBox_Enter);
+            this.CardCVVTextBox.Leave += new System.EventHandler(this.CVVTextBox_Leave);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(702, 414);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 31);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "CVV:";
+            // 
+            // CardExpirationDateYears
+            // 
+            this.CardExpirationDateYears.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardExpirationDateYears.Location = new System.Drawing.Point(565, 418);
+            this.CardExpirationDateYears.MaxLength = 2;
+            this.CardExpirationDateYears.Name = "CardExpirationDateYears";
+            this.CardExpirationDateYears.Size = new System.Drawing.Size(57, 29);
+            this.CardExpirationDateYears.TabIndex = 19;
+            this.CardExpirationDateYears.Text = "YY";
+            this.CardExpirationDateYears.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CardExpirationDateYears.Enter += new System.EventHandler(this.CardExpirationDateYears_Enter);
+            this.CardExpirationDateYears.Leave += new System.EventHandler(this.CardExpirationDateYears_Leave);
+            // 
+            // ForwardSlashEXDLabel
+            // 
+            this.ForwardSlashEXDLabel.AutoSize = true;
+            this.ForwardSlashEXDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForwardSlashEXDLabel.ForeColor = System.Drawing.SystemColors.Control;
+            this.ForwardSlashEXDLabel.Location = new System.Drawing.Point(542, 412);
+            this.ForwardSlashEXDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ForwardSlashEXDLabel.Name = "ForwardSlashEXDLabel";
+            this.ForwardSlashEXDLabel.Size = new System.Drawing.Size(26, 38);
+            this.ForwardSlashEXDLabel.TabIndex = 20;
+            this.ForwardSlashEXDLabel.Text = "/";
+            // 
+            // CardExpirationDateMonths
+            // 
+            this.CardExpirationDateMonths.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CardExpirationDateMonths.Location = new System.Drawing.Point(484, 418);
+            this.CardExpirationDateMonths.MaxLength = 2;
+            this.CardExpirationDateMonths.Name = "CardExpirationDateMonths";
+            this.CardExpirationDateMonths.Size = new System.Drawing.Size(57, 29);
+            this.CardExpirationDateMonths.TabIndex = 19;
+            this.CardExpirationDateMonths.Text = "MM";
+            this.CardExpirationDateMonths.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CardExpirationDateMonths.Enter += new System.EventHandler(this.CardExpirationDateMonths_Enter);
+            this.CardExpirationDateMonths.Leave += new System.EventHandler(this.CardExpirationDateMonths_Leave);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(271, 414);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(207, 31);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Expiration Date:";
             // 
             // CardNumberErrorLabel
             // 
@@ -781,10 +914,8 @@ namespace SimuSecApp
             this.CardNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CardNumberTextBox.MaxLength = 20;
             this.CardNumberTextBox.Name = "CardNumberTextBox";
-            this.CardNumberTextBox.PasswordChar = '*';
             this.CardNumberTextBox.Size = new System.Drawing.Size(709, 33);
             this.CardNumberTextBox.TabIndex = 14;
-            this.CardNumberTextBox.UseSystemPasswordChar = true;
             // 
             // CardHolderNameTextBox
             // 
@@ -843,81 +974,7 @@ namespace SimuSecApp
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(271, 414);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(207, 31);
-            this.label6.TabIndex = 18;
-            this.label6.Text = "Expiration Date:";
-            // 
-            // CardExpirationDateMonths
-            // 
-            this.CardExpirationDateMonths.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardExpirationDateMonths.Location = new System.Drawing.Point(484, 418);
-            this.CardExpirationDateMonths.MaxLength = 2;
-            this.CardExpirationDateMonths.Name = "CardExpirationDateMonths";
-            this.CardExpirationDateMonths.Size = new System.Drawing.Size(57, 29);
-            this.CardExpirationDateMonths.TabIndex = 19;
-            this.CardExpirationDateMonths.Text = "MM";
-            this.CardExpirationDateMonths.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CardExpirationDateMonths.Enter += new System.EventHandler(this.CardExpirationDateMonths_Enter);
-            this.CardExpirationDateMonths.Leave += new System.EventHandler(this.CardExpirationDateMonths_Leave);
-            // 
-            // ForwardSlashEXDLabel
-            // 
-            this.ForwardSlashEXDLabel.AutoSize = true;
-            this.ForwardSlashEXDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ForwardSlashEXDLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.ForwardSlashEXDLabel.Location = new System.Drawing.Point(542, 412);
-            this.ForwardSlashEXDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.ForwardSlashEXDLabel.Name = "ForwardSlashEXDLabel";
-            this.ForwardSlashEXDLabel.Size = new System.Drawing.Size(26, 39);
-            this.ForwardSlashEXDLabel.TabIndex = 20;
-            this.ForwardSlashEXDLabel.Text = "/";
-            // 
-            // CardExpirationDateYears
-            // 
-            this.CardExpirationDateYears.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardExpirationDateYears.Location = new System.Drawing.Point(565, 418);
-            this.CardExpirationDateYears.MaxLength = 2;
-            this.CardExpirationDateYears.Name = "CardExpirationDateYears";
-            this.CardExpirationDateYears.Size = new System.Drawing.Size(57, 29);
-            this.CardExpirationDateYears.TabIndex = 19;
-            this.CardExpirationDateYears.Text = "YY";
-            this.CardExpirationDateYears.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CardExpirationDateYears.Enter += new System.EventHandler(this.CardExpirationDateYears_Enter);
-            this.CardExpirationDateYears.Leave += new System.EventHandler(this.CardExpirationDateYears_Leave);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(702, 414);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 31);
-            this.label7.TabIndex = 22;
-            this.label7.Text = "CVV:";
-            // 
-            // CardCVVTextBox
-            // 
-            this.CardCVVTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardCVVTextBox.Location = new System.Drawing.Point(787, 418);
-            this.CardCVVTextBox.MaxLength = 3;
-            this.CardCVVTextBox.Name = "CardCVVTextBox";
-            this.CardCVVTextBox.Size = new System.Drawing.Size(57, 29);
-            this.CardCVVTextBox.TabIndex = 23;
-            this.CardCVVTextBox.Text = "XXX";
-            this.CardCVVTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CardCVVTextBox.Enter += new System.EventHandler(this.CVVTextBox_Enter);
-            this.CardCVVTextBox.Leave += new System.EventHandler(this.CVVTextBox_Leave);
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // InitialScreens
             // 
@@ -1012,6 +1069,10 @@ namespace SimuSecApp
         private System.Windows.Forms.TextBox CardExpirationDateYears;
         private System.Windows.Forms.TextBox CardCVVTextBox;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label CardCVVErrorLabel;
+        private System.Windows.Forms.Label CardExpirationDateErrorLabel;
+        private System.Windows.Forms.Label TotalPriceCart;
+        private System.Windows.Forms.Label label2;
     }
 }
 

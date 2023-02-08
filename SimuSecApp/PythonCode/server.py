@@ -6,7 +6,7 @@ import sqlite3
 class Server:
     def __init__(self) -> None:
         self.host = '127.0.0.1'
-        self.port = 11111
+        self.port = 11112
         self.BUFFER = PYProtocol.BUFFER
 
         self.init_socket()
@@ -37,12 +37,9 @@ class Server:
 
     def transcript_info(self):
         while True:
-            action = self.cli_sock.recv(100).decode()
+            action = PYProtocol.recv(self.cli_sock)
             
             PYProtocol.act_by_action(action, self.cli_sock)
-
-            print("Done")
-            break
         
 
 if __name__ == "__main__":
