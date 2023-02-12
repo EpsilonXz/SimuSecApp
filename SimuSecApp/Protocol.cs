@@ -36,8 +36,6 @@ namespace SimuSecApp
             return TestIndicator + cardCVV;
         }
 
-        
-
         public bool isVerified(string LoopBackValue)
         {
             

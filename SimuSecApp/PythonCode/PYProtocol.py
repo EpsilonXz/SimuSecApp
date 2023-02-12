@@ -169,6 +169,8 @@ def login(sock: socket.socket):
         
         else:
             sock.send("ERRORMSG".encode())
+    else:
+        sock.send("ERRORMSG".encode())
 
 def signup(sock):
     email, passw = get_email_and_password_from_client(sock)
@@ -183,13 +185,17 @@ def signup(sock):
         email = splitted_res[1]
         passw = splitted_res[2]
 
-        sock.send("OK".encode())
+        try:
+            CONN.find_in_database(USER_CREDS_TABLE_NAME, "email", email)
+            sock.send("NO:::User already exists")
+        except:
+            sock.send("OK".encode())
 
-        # Adding user to the database
-        CONN.write_to_database(USER_CREDS_TABLE_NAME, 
-                              (email, hash_password(passw),
-                               unix_time_plus_month()))
-    
+            # Adding user to the database
+            CONN.write_to_database(USER_CREDS_TABLE_NAME, 
+                                  (email, hash_password(passw),
+                                   unix_time_plus_month()))
+
     else:
         sock.send("ERRORMSG".encode())
 
