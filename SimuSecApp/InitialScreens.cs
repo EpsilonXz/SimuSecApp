@@ -73,6 +73,11 @@ namespace SimuSecApp
                 }
 
                 MessageBox.Show("Verified");
+                SimuSec appForm = new SimuSec(_client);
+                this.Hide();
+                appForm.ShowDialog(); // Need to close the other form
+                this.Close();
+
 
             }
             

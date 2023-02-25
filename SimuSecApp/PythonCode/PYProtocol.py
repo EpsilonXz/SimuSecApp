@@ -11,7 +11,7 @@ from SQL_ORM import Connection, USER_CREDS_TABLE_NAME
 __author__ = "SimuSecLTD"
 
 BUFFER  = 1024
-CONN = Connection()
+DB = Connection()
 
 def recv_length(sock: socket.socket):
     length_str = sock.recv(4).decode()
@@ -124,30 +124,23 @@ def credential_validation_process(email: str, password: str):
 def verify_license(license_end_date: int):
     return (license_end_date - current_unixtime_as_int()) > 0
 
-def check_user_exists(email: str) -> bool:
-    if CONN.find_in_database(table_name="UserCreds", to_find="Email",
-                             value=email):
-        return True
-    
-    return False
-
 def validate_user_for_login(email: str, password: str):
-    all_values = CONN.find_in_database(table_name="UserCreds", to_find="Email",
-                             value=email)
-    
-    if not all_values: return "NO"
+    if not DB.user_exists(email):
+        return "NO"
+    else:
+        all_values = DB.get_user_creds(email)
 
-    # all values should return a 3 value tuple of (str, str, int)
-    email_found       = all_values[0]
-    password_found    = all_values[1]
-    license_end_found = all_values[2]
+        # all values should return a 3 value tuple of (str, str, int)
+        email_found       = all_values[0]
+        password_found    = all_values[1]
+        license_end_found = all_values[2]
 
-    # Email and password should be the same, validate the hash and a valid license
-    if email == email_found and verify_password(password, password_found)\
-                            and verify_license(license_end_found):
-        return "OK"
-    
-    return "NO"
+        # Email and password should be the same, validate the hash and a valid license
+        if email == email_found and verify_password(password, password_found)\
+                                and verify_license(license_end_found):
+            return "OK"
+
+        return "NO"
 
 def login(sock: socket.socket):
     email, passw = get_email_and_password_from_client(sock)
@@ -185,16 +178,14 @@ def signup(sock):
         email = splitted_res[1]
         passw = splitted_res[2]
 
-        try:
-            CONN.find_in_database(USER_CREDS_TABLE_NAME, "email", email)
+        if DB.user_exists(email): 
             sock.send("NO:::User already exists")
-        except:
+        else:
             sock.send("OK".encode())
 
             # Adding user to the database
-            CONN.write_to_database(USER_CREDS_TABLE_NAME, 
-                                  (email, hash_password(passw),
-                                   unix_time_plus_month()))
+            DB.add_user((email, hash_password(passw),
+                                  unix_time_plus_month()))
 
     else:
         sock.send("ERRORMSG".encode())

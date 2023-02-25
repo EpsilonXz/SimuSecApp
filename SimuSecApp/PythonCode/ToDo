@@ -8,7 +8,4 @@ To all validations add a check that the splitted result
 is only 2 long... right now: test@gmail.com:::some
 is a valid email and it should'nt be
 
-You motherfucker need to get the checking of the matching passwords before sending
-the data you stupid!!!!!
-
 Add a length field to the message in protocol
