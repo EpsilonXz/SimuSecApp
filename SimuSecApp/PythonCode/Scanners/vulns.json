@@ -44,7 +44,11 @@
       "Severity": "9.8 High"
     },
     {
-      "server": ["Asp"]
+      "server": ["ASP.NET Core 1.0", "ASP.NET Core 1.1", "ASP.NET Core 2.0"],
+      "Type": "Web",
+      "CVE": "CVE-2017-0249",
+      "Description": "An elevation of privilege vulnerability exists when the ASP.NET Core fails to properly sanitize web requests. Possible XSS vulnerability.",
+      "Severity": "7.3 High"
     }
   ]
 }
