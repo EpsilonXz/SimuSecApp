@@ -21,8 +21,7 @@ class DOS:
         try:
             self.sock.connect((self.ip, self.port))
             return "OK"
-        except Exception as e:
-            print(e)
+        except:
             return "Couldnt connect"
 
     def update_scan_to_json(self, percent):

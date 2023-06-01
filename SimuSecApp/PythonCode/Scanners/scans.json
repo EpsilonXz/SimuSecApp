@@ -1,22 +1,12 @@
 {
-  "roi@gmail.com": {
-    "exploits": [
-      " \nNetwork\nCVE-2022-26809\n9.8 High\nRemote Procedure Call Runtime Remote Code Execution Vulnerability."
-    ],
-    "status": 2
-  },
   "test@gmail.com": {
-    "exploits": [
-      "Windows\nNetwork\nCVE-2022-26809\n9.8\nRemote... Procedure Call Runtime Remote Code Execution Vulnerability."
-    ],
-    "status": 2
-  },
-  "test1@gmail.com": {
     "exploits": [],
     "status": 0
   },
-  "shalevshagan1@gmail.com": {
-    "exploits": [],
+  "roi@gmail.com": {
+    "exploits": [
+      "Microsoft Windows RPC\nNetwork\nCVE-2022-26809\n9.8 High\nRemote Procedure Call Runtime Remote Code Execution Vulnerability."
+    ],
     "status": 2
   }
 }
