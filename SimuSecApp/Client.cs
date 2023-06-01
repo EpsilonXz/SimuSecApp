@@ -132,7 +132,6 @@ namespace SimuSecApp
             // Decrypt the ciphertext
             string plaintext = DecryptStringFromBytes(ciphertext);
 
-            System.Windows.Forms.MessageBox.Show(plaintext);
             string[] result = SplitByProtocol(plaintext);
 
             return result;

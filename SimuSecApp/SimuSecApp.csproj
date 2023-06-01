@@ -140,9 +140,7 @@
     <Content Include="Logs\SystemLogs.txt" />
     <None Include="Resources\1.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="PythonCode\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
       <Visible>False</Visible>
