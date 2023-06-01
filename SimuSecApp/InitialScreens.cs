@@ -20,7 +20,7 @@ namespace SimuSecApp
         Protocol protocol = new Protocol();
         string _optionPickedPrice;
 
-        public InitialScreens()
+        public InitialScreens(Client client = null)
         {
             InitializeComponent();
            
@@ -32,6 +32,9 @@ namespace SimuSecApp
             RJButton button = new RJButton();
 
             _client.ExecuteClient();
+
+
+            
 
             tabControl1.ItemSize = new System.Drawing.Size(0, 1);
             tabControl1.TabStop = false;
@@ -56,23 +59,19 @@ namespace SimuSecApp
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             if (EmailTextBox.Text.Length != 0 && PasswordTextBox.Text.Length != 0) {
-                MessageBox.Show("Well done! Sending data... ");
 
-                _client.Send("LOGIN");
+                string[] args = { EmailTextBox.Text, PasswordTextBox.Text };
+                string toSend = _client.PackByProtocol(args, type: "LOGIN");
+                _client.Send(toSend);
 
-                string emailToSend = protocol.PackUsernameFormat(EmailTextBox.Text);
-                string passwToSend = protocol.PackPasswordFormat(PasswordTextBox.Text);
-                _client.Send(emailToSend);
-                _client.Send(passwToSend);
-
-                string verificationRes = _client.Receive();
+                string verificationRes = _client.Receive()[0];
 
                 if (!(protocol.isVerified(verificationRes))) {
-                    MessageBox.Show("Not good!");
+                    GeneralLoginErrorLabel.Text = verificationRes;
+                    GeneralLoginErrorLabel.Visible = true;
                     return;
                 }
 
-                MessageBox.Show("Verified");
                 SimuSec appForm = new SimuSec(_client);
                 this.Hide();
                 appForm.ShowDialog(); // Need to close the other form
@@ -112,24 +111,18 @@ namespace SimuSecApp
             if (ConfirmPasswordTextBoxSU.Text.Length != 0 && PasswordTextBoxSU.Text.Length != 0
                 && EmailTextBoxSU.Text.Length != 0)
             {
-                MessageBox.Show("Well done! Sending data...");
+                string[] args = { EmailTextBoxSU.Text, PasswordTextBoxSU.Text };
+                string toSend = _client.PackByProtocol(args, type: "SIGNUP");
+                _client.Send(toSend);
 
-                _client.Send("SIGNUP");
-
-                string emailToSend = protocol.PackUsernameFormat(EmailTextBoxSU.Text);
-                string passwToSend = protocol.PackPasswordFormat(PasswordTextBoxSU.Text);
-                _client.Send(emailToSend);
-                _client.Send(passwToSend);
-
-                string verificationRes = _client.Receive();
+                string verificationRes = _client.Receive()[0];
 
                 if (!(protocol.isVerified(verificationRes)))
                 {
-                    MessageBox.Show("Not good!");
+                    GeneralSUErrorLabel.Text = verificationRes;
+                    GeneralLoginErrorLabel.Visible = true;
                     return;
                 }
-
-                MessageBox.Show("Verified");
 
 
             }
@@ -333,13 +326,11 @@ namespace SimuSecApp
 
         private void PaymentButtton_Click(object sender, EventArgs e)
         {
-            _client.Send("PAY"); // Initial msg
 
-            if (CardExpirationDateYears.Text != "" && CardExpirationDateMonths.Text != "" &&
+            if (UserEmailTextBoxPayment.Text != "" && CardExpirationDateYears.Text != "" && CardExpirationDateMonths.Text != "" &&
                 CardCVVTextBox.Text != "" && CardHolderNameTextBox.Text != "" && 
                 CardNumberTextBox.Text != "")
             {
-                MessageBox.Show("Well Done! Sending data...");
 
                 string cardHolderNameToSend = protocol.PackCardHolderNameFormat(CardHolderNameTextBox.Text);
                 string cardNumberToSend = protocol.PackCardNumberFormat(CardNumberTextBox.Text);
@@ -348,20 +339,19 @@ namespace SimuSecApp
                 string cardCVVToSend = protocol.PackCardCVVFormat(CardCVVTextBox.Text);
 
                 // Send the data
-                _client.Send(cardHolderNameToSend);
-                _client.Send(cardNumberToSend);
-                _client.Send(cardExpirationDateToSend);
-                _client.Send(cardCVVToSend);
+                string[] args = { UserEmailTextBoxPayment.Text, TotalPriceCart.Text, cardHolderNameToSend, cardNumberToSend,cardExpirationDateToSend, cardCVVToSend };
+                string toSend = _client.PackByProtocol(args, type: "PAY");
+                _client.Send(toSend);
 
-                string verificationRes = _client.Receive();
+                string verificationRes = _client.Receive()[0];
 
                 if (!(protocol.isVerified(verificationRes)))
                 {
-                    MessageBox.Show("Not good!");
+                    GeneralCardErrorLabel.Text = verificationRes;
+                    GeneralCardErrorLabel.Visible = true;
                     return;
                 }
 
-                MessageBox.Show("Verified");
             }
 
             if (CardExpirationDateYears.Text == "" || CardExpirationDateMonths.Text == "")
