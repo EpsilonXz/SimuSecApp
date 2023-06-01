@@ -49,6 +49,13 @@
       "CVE": "CVE-2017-0249",
       "Description": "An elevation of privilege vulnerability exists when the ASP.NET Core fails to properly sanitize web requests. Possible XSS vulnerability.",
       "Severity": "7.3 High"
+    },
+    {
+      "server": "Microsoft Windows RPC",
+      "Type" : "Network",
+      "CVE": "CVE-2022-26809",
+      "Description": "Remote Procedure Call Runtime Remote Code Execution Vulnerability.",
+      "Severity": "9.8 High"
     }
   ]
 }

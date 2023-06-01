@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+SimuSecApp/.vscode/settings.json
+SimuSecApp/PythonCode/test.py
+SimuSecApp/PythonCode/test2.py
+SimuSecApp/PythonCode/test.py

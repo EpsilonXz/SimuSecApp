@@ -1,6 +1,10 @@
 import sqlite3
+import os.path
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_NAME = "SimuSecDB.db"
+db_path = os.path.join(BASE_DIR, "../database/" + DB_NAME)
+
 USER_CREDS_TABLE_NAME = "UserCreds"
 
 class Connection:
@@ -8,7 +12,7 @@ class Connection:
         self.conn, self.cur = self.open_database()
 
     def open_database(self):
-        conn = sqlite3.connect("database\\" + DB_NAME)
+        conn = sqlite3.connect(db_path, check_same_thread=False)
         c    = conn.cursor()
 
         return conn, c
@@ -28,11 +32,23 @@ class Connection:
 
         return to_return
     
+    def update_license_date(self, email, new_date):
+        self.cur.execute(f"UPDATE {USER_CREDS_TABLE_NAME} SET LicenseEndDate= '{new_date}' WHERE Email='{email}'")
+        
+        bone = self.cur.fetchone()
+        
+        self.conn.commit()
     def user_exists(self, email):
-        try:
-            self.cur.execute(f"SELECT * FROM {USER_CREDS_TABLE_NAME} WHERE Email='{email}'")
-        except:
-            return False
-        return True
+        self.cur.execute(f"SELECT * FROM {USER_CREDS_TABLE_NAME} WHERE Email='{email}'")
+        
+        bone = self.cur.fetchone()
+        
+        self.conn.commit()
+        
+        if bone is not None:
+            return True
+        return False
+
+        
     def close_database(self):
         self.conn.close()
