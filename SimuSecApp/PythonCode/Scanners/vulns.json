@@ -1,0 +1,61 @@
+{
+  "Vulnerabilities": [
+    {
+      "server": [
+        "Apache httpd 2.4.41",
+        "Apache httpd 2.4.42",
+        "Apache httpd 2.4.43",
+        "Apache httpd 2.4.44",
+        "Apache httpd 2.4.45",
+        "Apache httpd 2.4.46"
+      ],
+      "Type": "Network",
+      "CVE": "CVE-2020-13950",
+      "Description": "Apache HTTP Server versions 2.4.41 to 2.4.46 mod_proxy_http can be made to crash (NULL pointer dereference) with specially crafted requests using both Content-Length and Transfer-Encoding headers, leading to a Denial of Service References",
+      "Severity": "7.5 High"
+    },
+    {
+      "server": [
+        "Microsoft Windows Server 2003",
+        "Microsoft Windows Server 2008",
+        "Microsoft Windows Server 2012"
+      ],
+      "Type": "Network",
+      "CVE": "CVE-2015-1635",
+      "Description": "The vulnerability is due to crafted HTTP request by passing large value in Range header, IIS fails to validate the value properly leading to Denial of Service (Unresponsive or Blue Screen of Death) and possible Code Execution.",
+      "Severity": "10 High"
+    },
+    {
+      "server": [
+        "WordPress 4.9.0",
+        "WordPress 4.9.1",
+        "WordPress 4.9.2",
+        "WordPress 4.9.3",
+        "WordPress 4.9.4",
+        "WordPress 4.9.5",
+        "WordPress 4.9.6",
+        "WordPress 4.9.7",
+        "WordPress 4.9.8",
+        "WordPress 5.0.0"
+      ],
+      "Type": "Web",
+      "CVE": "CVE-2018-19207",
+      "Description": "Possible SQL Injection.",
+      "Severity": "9.8 High"
+    },
+    {
+      "server": ["ASP.NET Core 1.0", "ASP.NET Core 1.1", "ASP.NET Core 2.0"],
+      "Type": "Web",
+      "CVE": "CVE-2017-0249",
+      "Description": "An elevation of privilege vulnerability exists when the ASP.NET Core fails to properly sanitize web requests. Possible XSS vulnerability.",
+      "Severity": "7.3 High"
+    },
+    {
+      "server": "Microsoft Windows RPC",
+      "Type" : "Network",
+      "CVE": "CVE-2022-26809",
+      "Description": "Remote Procedure Call Runtime Remote Code Execution Vulnerability.",
+      "Severity": "9.8 High"
+    }
+  ]
+}
