@@ -71,6 +71,9 @@ namespace SimuSecApp
             this.LogoEXL1 = new System.Windows.Forms.PictureBox();
             this.ChoosePlanLabel = new System.Windows.Forms.Label();
             this.PaymentScreen = new System.Windows.Forms.TabPage();
+            this.UserEmailErrorLabelPayment = new System.Windows.Forms.Label();
+            this.UserEmailTextBoxPayment = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.TotalPriceCart = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CardCVVErrorLabel = new System.Windows.Forms.Label();
@@ -90,6 +93,9 @@ namespace SimuSecApp
             this.label5 = new System.Windows.Forms.Label();
             this.PaymentLabel = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.GeneralLoginErrorLabel = new System.Windows.Forms.Label();
+            this.GeneralSUErrorLabel = new System.Windows.Forms.Label();
+            this.GeneralCardErrorLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.FirstPage.SuspendLayout();
             this.LoginScreen.SuspendLayout();
@@ -212,6 +218,7 @@ namespace SimuSecApp
             // LoginScreen
             // 
             this.LoginScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
+            this.LoginScreen.Controls.Add(this.GeneralLoginErrorLabel);
             this.LoginScreen.Controls.Add(this.PasswordErrorLabel);
             this.LoginScreen.Controls.Add(this.EmailErrorLabel);
             this.LoginScreen.Controls.Add(this.SubmitButton);
@@ -350,6 +357,7 @@ namespace SimuSecApp
             // SignUpScreen
             // 
             this.SignUpScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
+            this.SignUpScreen.Controls.Add(this.GeneralSUErrorLabel);
             this.SignUpScreen.Controls.Add(this.CurrentDateLabelSignUp);
             this.SignUpScreen.Controls.Add(this.ConfirmPassErrorLabelSU);
             this.SignUpScreen.Controls.Add(this.ConfirmPasswordTextBoxSU);
@@ -710,6 +718,10 @@ namespace SimuSecApp
             // PaymentScreen
             // 
             this.PaymentScreen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(30)))));
+            this.PaymentScreen.Controls.Add(this.GeneralCardErrorLabel);
+            this.PaymentScreen.Controls.Add(this.UserEmailErrorLabelPayment);
+            this.PaymentScreen.Controls.Add(this.UserEmailTextBoxPayment);
+            this.PaymentScreen.Controls.Add(this.label3);
             this.PaymentScreen.Controls.Add(this.TotalPriceCart);
             this.PaymentScreen.Controls.Add(this.label2);
             this.PaymentScreen.Controls.Add(this.CardCVVErrorLabel);
@@ -735,12 +747,47 @@ namespace SimuSecApp
             this.PaymentScreen.TabIndex = 4;
             this.PaymentScreen.Text = "PaymentScreen";
             // 
+            // UserEmailErrorLabelPayment
+            // 
+            this.UserEmailErrorLabelPayment.AutoSize = true;
+            this.UserEmailErrorLabelPayment.ForeColor = System.Drawing.Color.Red;
+            this.UserEmailErrorLabelPayment.Location = new System.Drawing.Point(283, 157);
+            this.UserEmailErrorLabelPayment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.UserEmailErrorLabelPayment.Name = "UserEmailErrorLabelPayment";
+            this.UserEmailErrorLabelPayment.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UserEmailErrorLabelPayment.Size = new System.Drawing.Size(36, 16);
+            this.UserEmailErrorLabelPayment.TabIndex = 30;
+            this.UserEmailErrorLabelPayment.Text = "Error";
+            this.UserEmailErrorLabelPayment.Visible = false;
+            // 
+            // UserEmailTextBoxPayment
+            // 
+            this.UserEmailTextBoxPayment.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UserEmailTextBoxPayment.Location = new System.Drawing.Point(286, 111);
+            this.UserEmailTextBoxPayment.Margin = new System.Windows.Forms.Padding(4);
+            this.UserEmailTextBoxPayment.MaxLength = 254;
+            this.UserEmailTextBoxPayment.Name = "UserEmailTextBoxPayment";
+            this.UserEmailTextBoxPayment.Size = new System.Drawing.Size(709, 33);
+            this.UserEmailTextBoxPayment.TabIndex = 29;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Control;
+            this.label3.Location = new System.Drawing.Point(23, 111);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(154, 31);
+            this.label3.TabIndex = 28;
+            this.label3.Text = "User Email:";
+            // 
             // TotalPriceCart
             // 
             this.TotalPriceCart.AutoSize = true;
             this.TotalPriceCart.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalPriceCart.ForeColor = System.Drawing.SystemColors.Control;
-            this.TotalPriceCart.Location = new System.Drawing.Point(1153, 129);
+            this.TotalPriceCart.Location = new System.Drawing.Point(1128, 129);
             this.TotalPriceCart.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.TotalPriceCart.Name = "TotalPriceCart";
             this.TotalPriceCart.Size = new System.Drawing.Size(67, 31);
@@ -752,7 +799,7 @@ namespace SimuSecApp
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(1115, 91);
+            this.label2.Location = new System.Drawing.Point(1090, 91);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(152, 31);
@@ -763,7 +810,7 @@ namespace SimuSecApp
             // 
             this.CardCVVErrorLabel.AutoSize = true;
             this.CardCVVErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.CardCVVErrorLabel.Location = new System.Drawing.Point(795, 460);
+            this.CardCVVErrorLabel.Location = new System.Drawing.Point(804, 542);
             this.CardCVVErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CardCVVErrorLabel.Name = "CardCVVErrorLabel";
             this.CardCVVErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -776,7 +823,7 @@ namespace SimuSecApp
             // 
             this.CardExpirationDateErrorLabel.AutoSize = true;
             this.CardExpirationDateErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.CardExpirationDateErrorLabel.Location = new System.Drawing.Point(532, 460);
+            this.CardExpirationDateErrorLabel.Location = new System.Drawing.Point(541, 542);
             this.CardExpirationDateErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CardExpirationDateErrorLabel.Name = "CardExpirationDateErrorLabel";
             this.CardExpirationDateErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -788,7 +835,7 @@ namespace SimuSecApp
             // CardCVVTextBox
             // 
             this.CardCVVTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardCVVTextBox.Location = new System.Drawing.Point(787, 418);
+            this.CardCVVTextBox.Location = new System.Drawing.Point(796, 500);
             this.CardCVVTextBox.MaxLength = 3;
             this.CardCVVTextBox.Name = "CardCVVTextBox";
             this.CardCVVTextBox.Size = new System.Drawing.Size(57, 29);
@@ -803,7 +850,7 @@ namespace SimuSecApp
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.SystemColors.Control;
-            this.label7.Location = new System.Drawing.Point(702, 414);
+            this.label7.Location = new System.Drawing.Point(711, 496);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 31);
@@ -813,7 +860,7 @@ namespace SimuSecApp
             // CardExpirationDateYears
             // 
             this.CardExpirationDateYears.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardExpirationDateYears.Location = new System.Drawing.Point(565, 418);
+            this.CardExpirationDateYears.Location = new System.Drawing.Point(574, 500);
             this.CardExpirationDateYears.MaxLength = 2;
             this.CardExpirationDateYears.Name = "CardExpirationDateYears";
             this.CardExpirationDateYears.Size = new System.Drawing.Size(57, 29);
@@ -828,7 +875,7 @@ namespace SimuSecApp
             this.ForwardSlashEXDLabel.AutoSize = true;
             this.ForwardSlashEXDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForwardSlashEXDLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.ForwardSlashEXDLabel.Location = new System.Drawing.Point(542, 412);
+            this.ForwardSlashEXDLabel.Location = new System.Drawing.Point(551, 494);
             this.ForwardSlashEXDLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ForwardSlashEXDLabel.Name = "ForwardSlashEXDLabel";
             this.ForwardSlashEXDLabel.Size = new System.Drawing.Size(26, 38);
@@ -838,7 +885,7 @@ namespace SimuSecApp
             // CardExpirationDateMonths
             // 
             this.CardExpirationDateMonths.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardExpirationDateMonths.Location = new System.Drawing.Point(484, 418);
+            this.CardExpirationDateMonths.Location = new System.Drawing.Point(493, 500);
             this.CardExpirationDateMonths.MaxLength = 2;
             this.CardExpirationDateMonths.Name = "CardExpirationDateMonths";
             this.CardExpirationDateMonths.Size = new System.Drawing.Size(57, 29);
@@ -853,7 +900,7 @@ namespace SimuSecApp
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Control;
-            this.label6.Location = new System.Drawing.Point(271, 414);
+            this.label6.Location = new System.Drawing.Point(280, 496);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(207, 31);
@@ -864,7 +911,7 @@ namespace SimuSecApp
             // 
             this.CardNumberErrorLabel.AutoSize = true;
             this.CardNumberErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.CardNumberErrorLabel.Location = new System.Drawing.Point(274, 326);
+            this.CardNumberErrorLabel.Location = new System.Drawing.Point(283, 408);
             this.CardNumberErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CardNumberErrorLabel.Name = "CardNumberErrorLabel";
             this.CardNumberErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -877,7 +924,7 @@ namespace SimuSecApp
             // 
             this.CardHolderNameErrorLabel.AutoSize = true;
             this.CardHolderNameErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.CardHolderNameErrorLabel.Location = new System.Drawing.Point(274, 188);
+            this.CardHolderNameErrorLabel.Location = new System.Drawing.Point(283, 270);
             this.CardHolderNameErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.CardHolderNameErrorLabel.Name = "CardHolderNameErrorLabel";
             this.CardHolderNameErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -910,7 +957,7 @@ namespace SimuSecApp
             // CardNumberTextBox
             // 
             this.CardNumberTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardNumberTextBox.Location = new System.Drawing.Point(277, 270);
+            this.CardNumberTextBox.Location = new System.Drawing.Point(286, 352);
             this.CardNumberTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CardNumberTextBox.MaxLength = 20;
             this.CardNumberTextBox.Name = "CardNumberTextBox";
@@ -920,7 +967,7 @@ namespace SimuSecApp
             // CardHolderNameTextBox
             // 
             this.CardHolderNameTextBox.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CardHolderNameTextBox.Location = new System.Drawing.Point(277, 137);
+            this.CardHolderNameTextBox.Location = new System.Drawing.Point(286, 219);
             this.CardHolderNameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.CardHolderNameTextBox.MaxLength = 254;
             this.CardHolderNameTextBox.Name = "CardHolderNameTextBox";
@@ -932,7 +979,7 @@ namespace SimuSecApp
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.Control;
-            this.label4.Location = new System.Drawing.Point(14, 270);
+            this.label4.Location = new System.Drawing.Point(23, 352);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(184, 31);
@@ -944,7 +991,7 @@ namespace SimuSecApp
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.SystemColors.Control;
-            this.label5.Location = new System.Drawing.Point(14, 137);
+            this.label5.Location = new System.Drawing.Point(23, 219);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(247, 31);
@@ -956,7 +1003,7 @@ namespace SimuSecApp
             this.PaymentLabel.AutoSize = true;
             this.PaymentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PaymentLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.PaymentLabel.Location = new System.Drawing.Point(318, 4);
+            this.PaymentLabel.Location = new System.Drawing.Point(256, 4);
             this.PaymentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.PaymentLabel.Name = "PaymentLabel";
             this.PaymentLabel.Size = new System.Drawing.Size(730, 69);
@@ -975,6 +1022,45 @@ namespace SimuSecApp
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // GeneralLoginErrorLabel
+            // 
+            this.GeneralLoginErrorLabel.AutoSize = true;
+            this.GeneralLoginErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.GeneralLoginErrorLabel.Location = new System.Drawing.Point(566, 654);
+            this.GeneralLoginErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.GeneralLoginErrorLabel.Name = "GeneralLoginErrorLabel";
+            this.GeneralLoginErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.GeneralLoginErrorLabel.Size = new System.Drawing.Size(36, 16);
+            this.GeneralLoginErrorLabel.TabIndex = 9;
+            this.GeneralLoginErrorLabel.Text = "Error";
+            this.GeneralLoginErrorLabel.Visible = false;
+            // 
+            // GeneralSUErrorLabel
+            // 
+            this.GeneralSUErrorLabel.AutoSize = true;
+            this.GeneralSUErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.GeneralSUErrorLabel.Location = new System.Drawing.Point(575, 655);
+            this.GeneralSUErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.GeneralSUErrorLabel.Name = "GeneralSUErrorLabel";
+            this.GeneralSUErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.GeneralSUErrorLabel.Size = new System.Drawing.Size(36, 16);
+            this.GeneralSUErrorLabel.TabIndex = 21;
+            this.GeneralSUErrorLabel.Text = "Error";
+            this.GeneralSUErrorLabel.Visible = false;
+            // 
+            // GeneralCardErrorLabel
+            // 
+            this.GeneralCardErrorLabel.AutoSize = true;
+            this.GeneralCardErrorLabel.ForeColor = System.Drawing.Color.Red;
+            this.GeneralCardErrorLabel.Location = new System.Drawing.Point(541, 678);
+            this.GeneralCardErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.GeneralCardErrorLabel.Name = "GeneralCardErrorLabel";
+            this.GeneralCardErrorLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.GeneralCardErrorLabel.Size = new System.Drawing.Size(36, 16);
+            this.GeneralCardErrorLabel.TabIndex = 31;
+            this.GeneralCardErrorLabel.Text = "Error";
+            this.GeneralCardErrorLabel.Visible = false;
             // 
             // InitialScreens
             // 
@@ -1073,6 +1159,12 @@ namespace SimuSecApp
         private System.Windows.Forms.Label CardExpirationDateErrorLabel;
         private System.Windows.Forms.Label TotalPriceCart;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label UserEmailErrorLabelPayment;
+        private System.Windows.Forms.TextBox UserEmailTextBoxPayment;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label GeneralLoginErrorLabel;
+        private System.Windows.Forms.Label GeneralSUErrorLabel;
+        private System.Windows.Forms.Label GeneralCardErrorLabel;
     }
 }
 

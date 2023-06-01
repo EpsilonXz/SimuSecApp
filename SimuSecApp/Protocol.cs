@@ -8,32 +8,58 @@ namespace SimuSecApp
 {
     public class Protocol : IProtocol
     {
-        private string TestIndicator = "TEST:::";
-        public string PackUsernameFormat(string username)
+        public string PackByProtocol(string[] args, string type = "")
         {
-            return TestIndicator + username;
+            string fullString = "";
+
+            if (type != "")
+                fullString = type + ":::";
+
+            foreach (var item in args)
+            {
+                fullString += item+ ":::";
+            }
+
+            fullString = fullString.Remove(fullString.Length - 3, 3);
+
+            return fullString;
+
         }
-        
-        public string PackPasswordFormat(string password)
+        public string[] SplitByProtocol(string packedMsg)
         {
-            return TestIndicator + password;
+            string[] args = packedMsg.Split(':');
+
+            string fullString = "";
+
+            foreach (var item in args)
+            {
+                if (item != "")
+                    fullString += item + " ";
+            }
+            fullString = fullString.Remove(fullString.Length - 1, 1);
+
+            string[] toReturn = fullString.Split(' ');
+
+            return toReturn;
+
         }
+
         public string PackCardHolderNameFormat(string cardHolderName)
         {
-            return TestIndicator + cardHolderName;
+            return cardHolderName;
         }
         public string PackCardNumberFormat(string cardNumber)
         {
-            return TestIndicator + cardNumber;
+            return cardNumber;
         }
         public string PackCardExpirationDateFormat (string cardExpirationDateMonths,
                                                     string cardExpirationDateYears)
         {
-            return TestIndicator + cardExpirationDateMonths + "/" + cardExpirationDateYears;
+            return cardExpirationDateMonths + "/" + cardExpirationDateYears;
         }
         public string PackCardCVVFormat (string cardCVV)
         {
-            return TestIndicator + cardCVV;
+            return cardCVV;
         }
 
         public bool isVerified(string LoopBackValue)
