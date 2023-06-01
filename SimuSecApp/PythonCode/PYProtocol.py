@@ -2,7 +2,7 @@ import re
 import hashlib
 import os
 import time
-import sqlite3
+import secrets
 import socket
 import json
 import struct
@@ -88,6 +88,26 @@ def add_user_to_dos_json(email):
     with open(f"{BASE_DIR}/dos_attacks.json", "w") as f:
         data.update({email: {"scans": []}})
         json.dump(data, f, indent=2)
+
+def generate_salt():
+    return secrets.token_urlsafe(20)
+
+def hash_and_salt_password(plain_text: str, salt):
+    if len(salt) == 1:
+        salt = salt[0]
+        
+    password = plain_text + salt
+
+    # Create a SHA-256 hash object
+    sha256_hash = hashlib.sha256()
+
+    # Convert the password string to bytes and update the hash object
+    sha256_hash.update(password.encode('utf-8'))
+
+    # Get the hexadecimal representation of the hash digest
+    hashed_password = sha256_hash.hexdigest()
+
+    return hashed_password
 
 def start_values_phish_json(email, amount):
     with open(f"{BASE_DIR}/PyPhisher/files/saved_info.json", "r+") as f:
@@ -248,25 +268,15 @@ def validatePassword(password: str):
         return "NO"
 
 
-def hash_password(password: str):
-    # Generate a random 16-byte salt
-    salt = os.urandom(16)
-    
-    # Hash the password using the salt and the SHA-256 algorithm
-    password_hash = hashlib.pbkdf2_hmac('sha256', password.encode(), salt, 100000)
-    
-    # Combine the salt and the password hash and return the result as a hexadecimal string
-    return (salt + password_hash).hex()
 
-def verify_password(password: str, password_hash: str):
-    # Convert the hexadecimal password hash string back to bytes
-    salt = bytes.fromhex(password_hash[:32])
+def verify_password(email_given, password_given: str, password_hash: str):
+    salt = DB.get_user_salt(email_given) # Get user's salt
     
-    # Hash the entered password using the same salt and SHA-256 algorithm
-    password_hash_candidate = hashlib.pbkdf2_hmac('sha256', password.encode(), salt, 100000)
-    
-    # Compare the resulting password hash to the stored password hash
-    return password_hash_candidate.hex() == password_hash[32:]
+    new_password_salted_hash = hash_and_salt_password(password_given, salt)
+
+    if new_password_salted_hash == password_hash:
+        return True
+    return False
 
 def credential_validation_process(email: str, password: str):
     # Test the email and the password
@@ -294,7 +304,7 @@ def validate_user_for_login(email: str, password: str):
         license_end_found = all_values[2]
 
         # Email and password should be the same, validate the hash and a valid license
-        if email == email_found and verify_password(password, password_found)\
+        if email == email_found and verify_password(email_found, password, password_found)\
                                 and verify_license(license_end_found):
             return "OK"
 
@@ -344,9 +354,10 @@ def signup(sock, data):
         else:
             send(sock, "OK")
 
+            salt = generate_salt()
             # Adding user to the database
-            DB.add_user((email, hash_password(passw),
-                                  unix_time_add(30)))
+            DB.add_user((email, hash_and_salt_password(passw, salt),
+                        unix_time_add(30)), salt)
             
             add_user_to_saved_info_json(email)
             add_user_to_scans_json(email)

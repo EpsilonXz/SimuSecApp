@@ -1,25 +1,10 @@
 {
-  "roi@gmail.com": {
-    "ips": [
-      "109.64.250.0",
-      "82.102.155.7"
-    ],
-    "credentials": [
-      "82.102.155.7~ro@gmail.com~123456"
-    ],
-    "amount": 1
-  },
   "test@gmail.com": {
     "ips": [],
     "credentials": [],
     "amount": 1
   },
-  "test1@gmail.com": {
-    "ips": [],
-    "credentials": [],
-    "amount": 1
-  },
-  "shalevshagan1@gmail.com": {
+  "roi@gmail.com": {
     "ips": [],
     "credentials": [],
     "amount": 1

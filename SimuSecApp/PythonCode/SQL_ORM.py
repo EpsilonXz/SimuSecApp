@@ -6,6 +6,7 @@ DB_NAME = "SimuSecDB.db"
 db_path = os.path.join(BASE_DIR, "../database/" + DB_NAME)
 
 USER_CREDS_TABLE_NAME = "UserCreds"
+SALTS_INFO_TABLE_NAME = "UserSalts"
 
 class Connection:
     def __init__(self):
@@ -17,14 +18,26 @@ class Connection:
 
         return conn, c
 
-    def add_user(self, values):
+    def add_user(self, values, salt):
         self.cur.execute(f"INSERT INTO {USER_CREDS_TABLE_NAME}\
                                 VALUES {values}")
+        print(values[0])
+        self.cur.execute(f"INSERT INTO {SALTS_INFO_TABLE_NAME}\
+                                VALUES ('{values[0]}', '{salt}')")
         
         self.conn.commit()
 
     def get_user_creds(self, email):
         self.cur.execute(f"SELECT * FROM {USER_CREDS_TABLE_NAME} WHERE Email='{email}'")
+
+        to_return = self.cur.fetchone()
+
+        self.conn.commit()
+
+        return to_return
+
+    def get_user_salt(self, email:str):
+        self.cur.execute(f"SELECT Salt FROM {SALTS_INFO_TABLE_NAME} WHERE Email='{email}'")
 
         to_return = self.cur.fetchone()
 
@@ -52,3 +65,4 @@ class Connection:
         
     def close_database(self):
         self.conn.close()
+
